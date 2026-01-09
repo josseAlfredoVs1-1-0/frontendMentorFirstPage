@@ -1,0 +1,619 @@
+:root {
+    --toggleAddWidgetSwitch: #525868;
+    --activeStylesWidget: hsl(3, 71%, 56%);
+    /* */
+    --textColorActiveRemoveWidget: #091540;
+
+    /*STYLES DESKTOP VIEWPORT*/
+    --bodyBackColor: linear-gradient(180deg, #040918 0%, #091540 100%);
+    --headerBackColor: #1f2535;
+    --backgroundSvgThemeChange: hsl(217, 61%, 90%);
+    --backColorButtNavSecInitial: hsl(225, 23%, 24%);
+
+
+
+    /*Dark Theme Var*/
+    --headerThemeDark: #1e2433;
+    --svgThemeDark: hsl(219, 15%, 38%);
+    --boxFigureContainerDark: hsl(226, 25%, 14%);
+    --toggleAddWidgetSwitchDark: #525868;
+
+    /*Light Theme Var*/
+    --headerThemeLight: #f3f7fa;
+    --removeWidgetButtLight: #091540;
+    --colorTextLightThem: #08122f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', 'Courier New', Courier, monospace;
+}
+
+@font-face {
+    font-family: 'Noto Sans';
+    src: url(/assets/fonts/NotoSans-VariableFont_wdth\,wght.ttf);
+}
+
+/*BEGIN STYLES WITHOUT MEDIA QUERY BEGIN*/
+#bodyTagMain {
+    border: 1px solid cyan;
+    height: auto;
+}
+
+#sectionMainContainer .tittleNavBar {
+    color: white;
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+.buttNavSect {
+    border-radius: 20px;
+    padding: .5rem 1rem;
+    border: none;
+    color: white;
+    font-size: .9rem;
+    background: var(--backColorButtNavSecInitial);
+}
+
+.containerBoxOfButtons li button.activeButtNavSect {
+    background: hsl(3, 71%, 56%);
+    color: #040918;
+    border: 1.5px solid rgb(43, 186, 24);
+    border: 1px solid lime;
+}
+
+.boxFigureContainer>* {
+
+    border: 1px double transparent;
+}
+
+.containerMainInfo {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 1fr;
+    gap: 1rem;
+}
+
+.boxFigureContainer {
+    display: grid;
+    grid-template-columns: 90%;
+    grid-template-rows: 70% 30%;
+    place-content: center;
+}
+
+.boxFigureContainer header {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 1fr;
+    place-content: center;
+}
+
+.boxFigureContainer .containerImg {
+    position: relative;
+}
+
+.boxFigureContainer header article {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    padding-bottom: .5rem;
+}
+
+.boxFigureContainer header article p {
+    font-weight: 300;
+    color: rgb(200 200 200/1);
+}
+
+
+.containerImg img {
+    width: 80%;
+}
+
+.boxFigureContainer footer {
+    display: grid;
+    grid-template-columns: 15% 65% 20%;
+    grid-template-rows: 1fr;
+    place-items: center;
+}
+
+.boxFigureContainer .removeButtWidget {
+    color: white;
+    border: 1px solid hsl(0, 0%, 58%);
+    background: transparent;
+    width: 5.5rem;
+    height: 2rem;
+    border-radius: 25px;
+    display: grid;
+    place-content: center;
+    font-weight: 500;
+    transition:
+        background 1s ease,
+        color 2s ease,
+        border 1s ease-in-out;
+}
+
+.removeButtWidget.activeRemoveWidgetButt {
+    border: 1px solid rgb(90 90 90 /.2);
+    color: var(--textColorActiveRemoveWidget);
+    background: var(--activeStylesWidget);
+    transition: background 1s ease;
+}
+
+.boxFigureContainer .switch {
+    width: 3rem;
+    height: 1.5rem;
+    display: flex;
+    display: flex;
+    align-items: center;
+    place-content: center;
+}
+
+/*END STYLES WITHOUT MEDIA QUERY END*/
+
+/* DESKTOP SCREEN VIEWPORT*/
+@media screen and (max-width: 1441px) and (min-width: 377px) {
+
+    #bodyTagMain {
+        overflow: hidden;
+        height: 100dvh;
+    }
+
+    #wrapperContainerAllPage {
+        height: inherit;
+        background: var(--bodyBackColor);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        padding: 1rem 6rem;
+    }
+
+    .headerThemeChange {
+        width: 95%;
+        background: var(--headerBackColor);
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 15px;
+    }
+
+    .containerLogoMainHeaderPage {
+        display: flex;
+        width: 95%;
+        justify-content: start;
+    }
+
+    .containerLogoMainHeaderPage .logoMainPage {
+        transform: scale(.7) translate(-35px);
+    }
+
+    .svgThemeChange {
+        width: 2rem;
+        height: 2rem;
+        display: flex;
+        align-items: center;
+        border-radius: 8px;
+        justify-content: center;
+        border: 1.5px solid rgb(20 20 20/.7);
+        outline: 2px solid rgb(255 90 90/1);
+        background: var(--svgThemeDark);
+    }
+
+    .svgThemeChange svg {
+        transform: scale(1.1);
+    }
+
+    #sectionMainContainer {
+        width: 95%;
+        height: 94%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .containerNavInfo {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        width: 100%;
+        height: 11%;
+    }
+
+    .containerNavInfo>* {
+        width: 15rem;
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .containerNavInfo .tittleNavBar {
+        word-spacing: 5px;
+    }
+
+    #sectionMainContainer .containerNavInfo .containerBoxOfButtons {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: end;
+        gap: 0 .3rem;
+    }
+
+    .containerBoxOfButtons .buttNavSect {
+        font-size: .6rem;
+        width: x-large;
+    }
+
+    .containerFiguresBoxes {
+        width: 99%;
+        height: 88%;
+        display: grid;
+        gap: .5rem;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+
+    .boxFigureContainer {
+        background: rgb(90 90 90/.2);
+        border-radius: 8px;
+    }
+
+    .boxFigureContainer header {
+        border: 1px solid lime;
+    }
+    
+    .boxFigureContainer header > *{
+        padding: .5rem;
+    }
+    
+    .boxFigureContainer header article h4{
+        color: white;
+    }
+
+    .boxFigureContainer footer {
+        border: 1px solid lime;
+    }
+}
+
+
+/* MOBILE SCREEN VIEWPORT*/
+@media screen and (max-width: 376px) {
+
+    body {
+        padding: 2rem 1.5rem;
+    }
+
+
+    #wrapperContainerAllPage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .headerThemeChange {
+        background: var(--headerThemeDark);
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 4rem;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .containerLogoMainHeaderPage,
+    .svgThemeChange {
+        height: 100%;
+        height: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .containerLogoMainHeaderPage {
+        justify-content: start;
+        width: 70%;
+    }
+
+    .logoPage {
+        font-size: 10rem;
+    }
+
+    .svgThemeChange {
+        width: 15%;
+        background: var(--svgThemeDark);
+        border-radius: 10px;
+        border: none;
+    }
+
+    .themeIcon {
+        font-size: 1.5rem;
+    }
+
+    .themeIcon path {
+        stroke: white;
+    }
+
+    /*END of Section Header #headerMainTag*/
+
+
+    /*BEGIN section #sectionMainContainer*/
+    #sectionMainContainer {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 10rem auto;
+    }
+
+    .containerNavInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: .5rem;
+    }
+
+    .containerNavInfo h3 {
+        font-weight: 800;
+        font-size: 1.7rem;
+        color: #EBF2FC;
+    }
+
+    .containerBoxOfButtons {
+        width: 85%;
+        height: 4rem;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .containerBoxOfButtons li {
+        width: auto;
+        border: 1px solid rgb(200 200 200/ .5);
+        border-radius: 20px;
+        background: hsl(225, 23%, 24%);
+        list-style: none;
+        overflow: hidden;
+        cursor: auto;
+    }
+
+    .containerBoxOfButtons li button {
+        all: unset;
+        height: 100%;
+        color: white;
+        font-weight: 500;
+        display: grid;
+        padding: .5rem 1rem;
+    }
+
+
+    .containerMainInfo {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: .8rem;
+    }
+
+
+    /*styles widget card*/
+    .boxFigureContainer {
+        width: 100%;
+        height: 13rem;
+        border-radius: 20px;
+        display: grid;
+        grid-template-columns: 90%;
+        grid-template-rows: 55% 25%;
+        place-content: center;
+        color: white;
+    }
+
+    .boxFigureContainer header {
+        display: grid;
+        grid-template-columns: 25% 75%;
+        grid-template-rows: 1fr;
+        place-content: center;
+    }
+
+    .boxFigureContainer .containerImg {
+        position: relative;
+    }
+
+    .boxFigureContainer header article {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        padding-bottom: .5rem;
+    }
+
+    .boxFigureContainer header article p {
+        font-weight: 300;
+        color: rgb(200 200 200/1);
+    }
+
+
+    .containerImg img {
+        width: 80%;
+    }
+
+    .boxFigureContainer footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+    }
+
+    .boxFigureContainer .removeButtWidget {
+        color: white;
+        border: 1px solid hsl(0, 0%, 58%);
+        background: transparent;
+        width: 5.5rem;
+        height: 2rem;
+        border-radius: 25px;
+        display: grid;
+        place-content: center;
+        font-weight: 500;
+        transition:
+            background 1s ease,
+            color 2s ease,
+            border 1s ease-in-out;
+    }
+
+    .removeButtWidget.activeRemoveWidgetButt {
+        border: 1px solid rgb(90 90 90 /.2);
+        color: var(--textColorActiveRemoveWidget);
+        background: var(--activeStylesWidget);
+        transition: background 1s ease;
+    }
+
+    .boxFigureContainer .switch {
+        width: 3rem;
+        height: 1.5rem;
+        display: flex;
+        display: flex;
+        align-items: center;
+        place-content: center;
+    }
+
+    /*button toggle add widget DISABLE(default) styles BEGIN*/
+    .toggleAddWidgetSwitch {
+        border: none;
+        box-shadow: 0px 0px 1px rgb(20 20 20/1);
+        color: white;
+        background: var(--toggleAddWidgetSwitchDark);
+        border-radius: 25px;
+        width: 80%;
+        height: 70%;
+        display: flex;
+        align-items: center;
+    }
+
+    /*button toggle add widget DISABLE(default) styles END*/
+
+    .activeStylesWidget {
+        background: var(--activeStylesWidget);
+    }
+
+    .toggleAddWidgetSwitch i {
+        width: 20px;
+        height: 25px;
+        display: flex;
+        transform: scale(.6);
+        transition: transform 1.4s ease-in-out;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .switch .toggleAddWidgetSwitch .activeMoveSlider {
+        transform: scale(.8) translate(100%);
+        align-items: center;
+        padding: 0 11px;
+    }
+
+    /*styles widget card*/
+    /*END section #sectionMainContainer*/
+
+
+
+
+
+
+    /*CONFIG LIGHT AND DARK THEME BEGIN*/
+    /*Dark Theme Config BEGIN*/
+    .darkThem {
+        background: linear-gradient(180deg, #040918 0%, #091540 100%);
+    }
+
+    .darkThem #headerMainTag .svgThemeChange {
+        background: var(--svgThemeDark);
+    }
+
+    .darkThem #headerMainTag .svgThemeChange .sunIcon {
+        display: none;
+    }
+
+    .darkThem #headerMainTag .svgThemeChange .moonIcon {
+        display: block;
+    }
+
+    .darkThem .boxFigureContainer {
+        background: var(--boxFigureContainerDark);
+    }
+
+
+    /*Dark Theme Config END*/
+
+    /*light Theme Config BEGIN*/
+    .lightThem {
+        background: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+    }
+
+    .lightThem #headerMainTag {
+        background: var(--headerThemeLight);
+        box-shadow: 0px 0px 5px rgb(30 30 30/.2);
+    }
+
+    .lightThem .containerLogoMainHeaderPage svg path:not(:first-child) {
+        fill: #091540;
+    }
+
+    .lightThem.svgThemeChange {
+        background: #e5e5e5;
+    }
+
+    .lightThem.svgThemeChange svg path {
+        stroke: #040918;
+    }
+
+    .lightThem .containerNavInfo h3 {
+        color: #091540;
+    }
+
+    .lightThem .containerBoxOfButtons li {
+        background: rgb(255 255 255/1);
+        border: 1.5px solid rgb(80 80 80/.15);
+    }
+
+    .lightThem .containerBoxOfButtons li button {
+        color: var(--colorTextLightThem);
+        font-weight: 500;
+    }
+
+    .lightThem .containerBoxOfButtons li button.activeButtNavSect {
+        background: #c2211b;
+        color: white;
+    }
+
+    .lightThem .boxFigureContainer {
+        background: #fcfdff;
+        color: #040918;
+        border: 1px solid rgb(50 50 50/.2);
+        box-shadow:
+            2px 3px 10px rgb(120 120 120/ .4),
+            -2px -2px 10px rgb(10 10 10/.1);
+    }
+
+    .lightThem .boxFigureContainer header p {
+        font-weight: 350;
+        color: var(--colorTextLightThem);
+    }
+
+    .lightThem .boxFigureContainer .removeButtWidget {
+        color: var(--removeWidgetButtLight);
+    }
+
+    .lightThem .switch .toggleAddWidgetSwitch {
+        background: #c7c7c7;
+        color: white;
+    }
+
+    .lightThem .switch .toggleAddWidgetSwitch.activeStylesWidget {
+        background: #c2211b;
+    }
+
+    /*light Theme Config END*/
+    /*CONFIG LIGHT AND DARK THEME END*/
+
+}
