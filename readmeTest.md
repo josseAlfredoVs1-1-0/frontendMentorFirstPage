@@ -1,3 +1,10 @@
-# Mi primer proyecto con Git
-
-Aprendiendo Git desde cero 🚀
+/*          Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi dolor doloremque expedita dignissimos ab, aperiam ducimus accusamus temporibus delectus nam iure ipsa ad voluptatum natus omnis, sapiente deserunt numquam. Illo.
+          Sapiente modi odio quisquam eos, necessitatibus corrupti quod voluptatem, ea amet unde excepturi saepe laudantium suscipit veritatis praesentium eaque culpa nostrum dolores. Adipisci accusamus quibusdam minus, impedit et dolorem pariatur?
+          Totam aspernatur obcaecati nesciunt debitis ipsam in ipsa sunt atque iusto veniam porro culpa, omnis provident adipisci aliquid commodi soluta saepe possimus illo, optio eius impedit. Magnam culpa quod fugit?
+          Officiis ex alias quae neque qui nesciunt blanditiis porro. Tempore iure vero dolor totam nihil blanditiis suscipit laboriosam eaque a optio, beatae quam maiores dolorum deleniti et repudiandae corrupti possimus.
+          Omnis excepturi officiis quo cum nam, tempore soluta quis. Vitae ab praesentium aperiam mollitia consequuntur. Consequuntur harum, officiis necessitatibus voluptatum obcaecati laboriosam at tempore voluptatem dolorum, nihil aliquid ipsum. Facilis.
+          Debitis sapiente temporibus nihil maxime, quis cumque. Esse cupiditate voluptatibus, perspiciatis, maiores et quis molestias voluptates soluta ipsum a aut quas exercitationem accusantium necessitatibus deserunt. A mollitia quod eius illum.
+          Similique sunt beatae debitis voluptas officia aliquid quaerat nulla accusantium velit temporibus aliquam optio, non voluptatibus alias ut esse consectetur hic numquam laborum ipsam id iste tenetur ratione est! Officiis.
+          Officia harum saepe at sit autem, aperiam aliquam dolorum expedita quibusdam minima ea nihil beatae reiciendis quisquam eum deserunt itaque explicabo, exercitationem animi. Tenetur culpa, eius eligendi eum minus quidem.
+          Repellat eos hic quos voluptate eligendi! Nam nostrum repellendus numquam tempore iure, debitis magnam recusandae ipsum minima saepe animi temporibus accusamus, at sequi error inventore deserunt vero a dicta cum.
+          Dignissimos, minus dolores? Esse consequatur quaerat, velit laborum reprehenderit non asperiores recusandae. Possimus iusto, aliquam repellat praesentium esse eum vero iure doloremque ab consectetur, alias inventore? Recusandae rem culpa repellendus.*/
