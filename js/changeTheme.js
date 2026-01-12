@@ -15,7 +15,7 @@ function changeTheme(e) {
     var currTheme = confg.body.classList;
 
     if (!currTheme.contains("darkThem")) {
-        Object.entries(confg).forEach(([key, val]) => {
+        Object.entries(confg).forEach(([_, val]) => {
             if (val) {
                 if (val instanceof NodeList) {
                     val.forEach((node) => {
@@ -33,7 +33,7 @@ function changeTheme(e) {
         });
         //console.log(`Body classList aPthefter dark theme: ${confg.body.classList}`);
     } else {
-        Object.entries(confg).forEach(([key, val]) => {
+        Object.entries(confg).forEach(([_, val]) => {
             if (val) {
                 if (val instanceof NodeList) {
                     val.forEach((node) => {
@@ -60,7 +60,7 @@ function changeTheme(e) {
 function changeIconTheme(e) {
     let curr = e.currentTarget;
     console.log("target element: ", curr.getAttribute("class"));
-    console.log(`curr value :${curr}`);
+    console.log(`curr value :${curr.getAttribute("class")}`);
     let sun = document.querySelector(".sunIcon");
     let moon = document.querySelector(".moonIcon");
     if (!curr.classList.contains("darkThem")) {
