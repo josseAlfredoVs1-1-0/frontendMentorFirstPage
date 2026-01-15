@@ -32,7 +32,7 @@
 
 @font-face {
     font-family: 'Noto Sans';
-    src: url(assets/fonts/NotoSans-Italic-VariableFont_wdth,wght.ttf);
+    src: url(../assets/fonts/NotoSans-Italic-VariableFont_wdth,wght.ttf);
 }
 
 /*BEGIN STYLES WITHOUT MEDIA QUERY BEGIN*/
@@ -45,6 +45,11 @@
     color: white;
     font-weight: 800;
     font-size: 1.2rem;
+}
+
+#sectionMainContainer .containerNavInfo .clearFiler {
+    border: 4px solid red;
+    background: red;
 }
 
 .buttNavSect {
@@ -168,6 +173,8 @@
         align-items: center;
         padding: 2rem 6rem;
         gap: 2rem 0;
+        min-width: 100%;
+        min-height: 100dvh;
     }
 
     .headerThemeChange {
@@ -235,6 +242,16 @@
         word-spacing: 5px;
     }
 
+    .containerNavInfo .clearFilter {
+        width: 10%;
+        height: 60%;
+        background: transparent;
+        color: white;
+        border-radius: 20px;
+        border: none;
+        box-shadow: 3px 3px 1px grey;
+    }
+
     #sectionMainContainer .containerNavInfo .containerBoxOfButtons {
         list-style: none;
         display: flex;
@@ -271,12 +288,12 @@
     .boxFigureContainer header {
         border: 1px solid transparent;
     }
-    
-    .boxFigureContainer header > *{
+
+    .boxFigureContainer header>* {
         padding: .5rem;
     }
-    
-    .boxFigureContainer header article h4{
+
+    .boxFigureContainer header article h4 {
         color: white;
     }
 
