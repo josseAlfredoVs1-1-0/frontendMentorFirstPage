@@ -6,7 +6,7 @@ export function handleDisplay() {
     let items = Object.entries(localStorage).forEach(([key,val])=>{
         let currCard = document.getElementById(key);
         let cardId = currCard.getAttribute("Id");
-        console.log(`current value: ${cardId} -- active? ${val}`)
+        console.log(`card ID:${cardId} -- active?${val}`)
     });
     console.log(`items: ${items}`);
 }
