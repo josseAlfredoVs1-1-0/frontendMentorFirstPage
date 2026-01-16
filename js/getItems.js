@@ -2,7 +2,7 @@ export function getItemsLS() {
     console.log("get items initialization");
     Object.entries(localStorage).forEach(([key, value]) => {
         let currCard = document.getElementById(key);
-        console.log(`currCard: ${currCard.closest(".boxFigureContainer")} - value: ${value}`);
+        console.log(`currCard: ${currCard.closest(".boxFigureContainer").getAttribute("Id")} - value: ${value}`);
         if (currCard) {
             if (value != "active") {
                 currCard.querySelector(".toggleAddWidgetSwitch").classList.remove("activeStylesWidget");
