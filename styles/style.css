@@ -169,7 +169,7 @@
         background: var(--bodyBackColor);
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: start;
         align-items: center;
         padding: 4rem 6rem 1rem 6rem;
         min-width: 100%;
