@@ -1,5 +1,6 @@
 import { darkAll } from './applyDarkInitial.js';
 import { applyStyles } from './ActionRemove.js';
+import { handleDisplay } from './handleEmptyFilter.js';
 
 if (typeof document !== "undefined" &&
     typeof window !== "undefined") {
@@ -7,6 +8,7 @@ if (typeof document !== "undefined" &&
 
         window.onload = applyStyles();
         window.onload = darkAll();
+        window.onload = handleDisplay();
 
         //variables for toggle active in switch widget card 
         const buttonsSwitch = document.querySelectorAll(".toggleAddWidgetSwitch");

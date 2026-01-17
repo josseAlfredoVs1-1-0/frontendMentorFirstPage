@@ -1,6 +1,7 @@
 //set background dark theme BEGIN
 export function darkAll() {
-    Object.entries(confg).forEach(([key, prop]) => {
+    console.log(`darkAll initialized succesfull`);
+    Object.entries(confg).forEach(([_, prop]) => {
         if (prop instanceof NodeList) {
             prop.forEach((node) => {
                 node.classList.add("darkThem");

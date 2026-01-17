@@ -2,6 +2,9 @@
 const buttonsNavSec = document.querySelectorAll(".buttNavSect");
 const allCards = document.querySelectorAll(".boxFigureContainer");
 
+const resetB = document.querySelector(".clearFilter");
+resetB.addEventListener("click", clearFiler, false);
+
 //************** add event listeners BEGIN **************
 buttonsNavSec.forEach((butt) => {
     butt.addEventListener("click", toggleActiveNavButton, false);
@@ -95,3 +98,12 @@ function showInactive(cards, status) {
         el.style.display = "grid";
     });
 };
+
+function clearFiler(){
+    localStorage.clear();
+    refresh()
+}
+
+function refresh(){
+    window.location.reload();
+}
