@@ -1,6 +1,9 @@
 import { darkAll } from './applyDarkInitial.js';
 import { applyStyles } from './ActionRemove.js';
-import { handleDisplay } from './handleEmptyFilter.js';
+import './filterByCategory.js';
+import { refresh } from './filterByCategory.js';
+import './changeTheme.js';
+import { confg } from './changeTheme.js'
 
 if (typeof document !== "undefined" &&
     typeof window !== "undefined") {
@@ -8,11 +11,9 @@ if (typeof document !== "undefined" &&
 
         window.onload = applyStyles();
         window.onload = darkAll();
-        window.onload = handleDisplay();
 
         //variables for toggle active in switch widget card 
         const buttonsSwitch = document.querySelectorAll(".toggleAddWidgetSwitch");
-
 
         buttonsSwitch.forEach((butt) => {
             //styles
@@ -36,6 +37,8 @@ if (typeof document !== "undefined" &&
                 currButtSwitch.classList.remove("activeStylesWidget");
                 currIcon.classList.remove("activeMoveSlider");
                 console.log(`class list: ${currIcon.classList} INACTIVE NOW`);
+                let boxRem = currButtSwitch.closest(".boxFigure").getAttribute("Id");
+                console.log(`curr butt widgetActiveFunction: ${boxRem}`);
             }
         }
         //toggle active widget button end
@@ -59,6 +62,5 @@ if (typeof document !== "undefined" &&
 
         }
         //add widget local storage END
-
     });
 };

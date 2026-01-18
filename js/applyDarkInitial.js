@@ -1,3 +1,5 @@
+import { confg } from './changeTheme.js'
+
 //set background dark theme BEGIN
 export function darkAll() {
     console.log(`darkAll initialized succesfull`);

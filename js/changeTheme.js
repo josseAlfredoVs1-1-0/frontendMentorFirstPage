@@ -2,7 +2,7 @@
 document.querySelector(".toggleTheme").addEventListener("click", changeTheme, false);
 //************** add event listeners END **************
 
-var confg = {
+export var confg = {
     body: document.querySelector("#bodyTagMain"),
     toggleThemeButton: document.querySelector(".toggleTheme"),
     boxFigureContainer: document.querySelectorAll(".boxFigureContainer"),

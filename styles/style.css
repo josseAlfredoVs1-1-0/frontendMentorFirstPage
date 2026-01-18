@@ -20,7 +20,10 @@
     /*Light Theme Var*/
     --headerThemeLight: #f3f7fa;
     --removeWidgetButtLight: #091540;
-    --colorTextLightThem: #08122f;
+    --colorTextLightThem: #112;
+    --colorTextButtNav: #ffe;
+    --backLightColor: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+
 }
 
 * {
@@ -45,11 +48,6 @@
     color: white;
     font-weight: 800;
     font-size: 1.2rem;
-}
-
-#sectionMainContainer .containerNavInfo .clearFiler {
-    border: 4px solid red;
-    background: red;
 }
 
 .buttNavSect {
@@ -155,222 +153,6 @@
 }
 
 /*END STYLES WITHOUT MEDIA QUERY END*/
-
-/* DESKTOP SCREEN VIEWPORT*/
-@media screen and (max-width: 1441px) and (min-width: 377px) {
-
-    #bodyTagMain {
-        display: flex;
-        height: auto;
-    }
-
-    #wrapperContainerAllPage {
-        height: 100%;
-        background: var(--bodyBackColor);
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        align-items: center;
-        padding: 4rem 6rem 1rem 6rem;
-        min-width: 100%;
-        min-height: 100dvh;
-        border: 2px solid cyan;
-        gap: 2rem;
-    }
-
-    .headerThemeChange {
-        width: 95%;
-        background: var(--headerBackColor);
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        border-radius: 15px;
-    }
-    
-    .containerLogoMainHeaderPage {
-        display: flex;
-        width: 95%;
-        justify-content: start;
-    }
-
-    .containerLogoMainHeaderPage .logoMainPage {
-        transform: scale(.7) translate(-35px);
-    }
-    
-    .svgThemeChange {
-        width: 2rem;
-        height: 2rem;
-        display: flex;
-        align-items: center;
-        border-radius: 8px;
-        justify-content: center;
-        border: 1.5px solid rgb(20 20 20/.7);
-        outline: 2px solid rgb(255 90 90/1);
-        background: var(--svgThemeDark);
-    }
-    
-    .svgThemeChange svg {
-        transform: scale(1.1);
-    }
-
-    #sectionMainContainer {
-        width: 95%;
-        height: 94%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        gap: 3rem 0rem;
-    }
-
-    .containerNavInfo {
-        display: flex;
-        align-items: end;
-        justify-content: space-between;
-        width: 100%;
-        height: 3rem;
-    }
-
-    .containerNavInfo>* {
-        width: 15rem;
-        height: 70%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .containerNavInfo .tittleNavBar {
-        word-spacing: 5px;
-    }
-
-    .containerNavInfo .clearFilter {
-        width: 10%;
-        height: 60%;
-        background: transparent;
-        color: white;
-        border-radius: 20px;
-        border: none;
-        box-shadow: 3px 3px 1px grey;
-    }
-
-    #sectionMainContainer .containerNavInfo .containerBoxOfButtons {
-        list-style: none;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: end;
-        width: 40%;
-        height: 100%;
-    }
-
-    .containerBoxOfButtons .buttNavSect {
-        font-size: 1rem;
-        position: relative;
-        height: 2.5rem;
-        width: auto;
-        margin: 0 .7rem;
-    }
-
-    .containerFiguresBoxes {
-        width: 99%;
-        height: 88%;
-        display: grid;
-        gap: .5rem;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-    }
-
-    .boxFigureContainer {
-        min-height: 10rem;
-        background: rgb(90 90 90/.2);
-        border-radius: 8px;
-    }
-
-    .boxFigureContainer header {
-        border: 1px solid transparent;
-    }
-
-    .boxFigureContainer header>* {
-        padding: .5rem;
-    }
-
-    .boxFigureContainer header article h4 {
-        color: white;
-    }
-
-    .boxFigureContainer footer {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .boxFigureContainer .removeButtWidget {
-        color: white;
-        border: 1px solid hsl(0, 0%, 58%);
-        background: transparent;
-        width: 5.5rem;
-        height: 2rem;
-        border-radius: 25px;
-        display: grid;
-        place-content: center;
-        font-weight: 500;
-        transition:
-            background 1s ease,
-            color 2s ease,
-            border 1s ease-in-out;
-    }
-
-    .removeButtWidget.activeRemoveWidgetButt {
-        border: 1px solid rgb(90 90 90 /.2);
-        color: var(--textColorActiveRemoveWidget);
-        background: var(--activeStylesWidget);
-        transition: background 1s ease;
-    }
-
-    .boxFigureContainer .switch {
-        width: 3rem;
-        height: 1.5rem;
-        display: flex;
-        display: flex;
-        align-items: center;
-        place-content: center;
-    }
-
-    /*button toggle add widget DISABLE(default) styles BEGIN*/
-    .toggleAddWidgetSwitch {
-        border: none;
-        box-shadow: 0px 0px 1px rgb(20 20 20/1);
-        color: white;
-        background: var(--toggleAddWidgetSwitchDark);
-        border-radius: 25px;
-        width: 80%;
-        height: 70%;
-        display: flex;
-        align-items: center;
-    }
-
-    /*button toggle add widget DISABLE(default) styles END*/
-
-    .activeStylesWidget {
-        background: var(--activeStylesWidget);
-    }
-
-    .toggleAddWidgetSwitch i {
-        width: 20px;
-        height: 25px;
-        display: flex;
-        transform: scale(.6);
-        transition: transform 1.4s ease-in-out;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .switch .toggleAddWidgetSwitch .activeMoveSlider {
-        transform: scale(.8) translate(100%);
-        align-items: center;
-        padding: 0 11px;
-    }
-}
-
 
 /* MOBILE SCREEN VIEWPORT*/
 @media screen and (max-width: 376px) {
@@ -611,106 +393,322 @@
 
     /*styles widget card*/
     /*END section #sectionMainContainer*/
+}
 
+/* DESKTOP SCREEN VIEWPORT*/
+@media screen and (max-width: 1441px) and (min-width: 377px) {
 
-
-
-
-
-    /*CONFIG LIGHT AND DARK THEME BEGIN*/
-    /*Dark Theme Config BEGIN*/
-    .darkThem {
-        background: linear-gradient(180deg, #040918 0%, #091540 100%);
+    #bodyTagMain {
+        display: flex;
+        height: auto;
     }
 
-    .darkThem #headerMainTag .svgThemeChange {
+    #wrapperContainerAllPage {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        padding: 4rem 6rem 1rem 6rem;
+        min-width: 100%;
+        min-height: 100dvh;
+        gap: 2rem;
+    }
+
+    .headerThemeChange {
+        width: 95%;
+        height: 4rem;
+        background: var(--headerBackColor);
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 15px;
+        padding: 0 .2rem;
+    }
+
+    .containerLogoMainHeaderPage {
+        display: flex;
+        width: 95%;
+        justify-content: start;
+    }
+
+    .containerLogoMainHeaderPage .logoMainPage {
+        transform: scale(.7) translate(-35px);
+    }
+
+    .svgThemeChange {
+        width: 2rem;
+        height: 2rem;
+        display: flex;
+        align-items: center;
+        border-radius: 8px;
+        justify-content: center;
         background: var(--svgThemeDark);
     }
 
-    .darkThem #headerMainTag .svgThemeChange .sunIcon {
-        display: none;
+    .svgThemeChange svg {
+        transform: scale(1.1);
     }
 
-    .darkThem #headerMainTag .svgThemeChange .moonIcon {
-        display: block;
+    #sectionMainContainer {
+        width: 95%;
+        height: 94%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 3rem 0rem;
     }
 
-    .darkThem .boxFigureContainer {
-        background: var(--boxFigureContainerDark);
+    .containerNavInfo {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        width: 100%;
+        height: 3rem;
     }
 
-
-    /*Dark Theme Config END*/
-
-    /*light Theme Config BEGIN*/
-    .lightThem {
-        background: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+    .containerNavInfo>* {
+        width: 15rem;
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
-    .lightThem #headerMainTag {
-        background: var(--headerThemeLight);
-        box-shadow: 0px 0px 5px rgb(30 30 30/.2);
+    .containerNavInfo .tittleNavBar {
+        word-spacing: 5px;
     }
 
-    .lightThem .containerLogoMainHeaderPage svg path:not(:first-child) {
-        fill: #091540;
+    .containerNavInfo .clearFilter {
+        width: 10%;
+        height: 60%;
+        background: transparent;
+        color: white;
+        border-radius: 20px;
+        border: none;
+        box-shadow: 3px 3px 1px grey;
     }
 
-    .lightThem.svgThemeChange {
-        background: #e5e5e5;
+    #sectionMainContainer .containerNavInfo .containerBoxOfButtons {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: end;
+        width: 40%;
+        height: 100%;
     }
 
-    .lightThem.svgThemeChange svg path {
-        stroke: #040918;
+    .containerBoxOfButtons .buttNavSect {
+        font-size: 1rem;
+        position: relative;
+        height: 2.5rem;
+        width: auto;
+        margin: 0 .7rem;
     }
 
-    .lightThem .containerNavInfo h3 {
-        color: #091540;
+    .containerFiguresBoxes {
+        width: 99%;
+        height: 88%;
+        display: grid;
+        gap: .5rem;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
     }
 
-    .lightThem .containerBoxOfButtons li {
-        background: rgb(255 255 255/1);
-        border: 1.5px solid rgb(80 80 80/.15);
+    .boxFigureContainer {
+        min-height: 10rem;
+        background: rgb(90 90 90/.2);
+        border-radius: 8px;
     }
 
-    .lightThem .containerBoxOfButtons li button {
-        color: var(--colorTextLightThem);
+    .boxFigureContainer header {
+        border: 1px solid transparent;
+    }
+
+    .boxFigureContainer header>* {
+        padding: .5rem;
+    }
+
+    .boxFigureContainer header article h4 {
+        color: white;
+    }
+
+    .boxFigureContainer footer {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .boxFigureContainer .removeButtWidget {
+        color: white;
+        border: 1px solid hsl(0, 0%, 58%);
+        background: transparent;
+        width: 5.5rem;
+        height: 2rem;
+        border-radius: 25px;
+        display: grid;
+        place-content: center;
         font-weight: 500;
+        transition:
+            background 1s ease,
+            color 2s ease,
+            border 1s ease-in-out;
     }
 
-    .lightThem .containerBoxOfButtons li button.activeButtNavSect {
-        background: #c2211b;
+    .removeButtWidget.activeRemoveWidgetButt {
+        border: 1px solid rgb(90 90 90 /.2);
+        color: var(--textColorActiveRemoveWidget);
+        background: var(--activeStylesWidget);
+        transition: background 1s ease;
+    }
+
+    .boxFigureContainer .switch {
+        width: 3rem;
+        height: 1.5rem;
+        display: flex;
+        display: flex;
+        align-items: center;
+        place-content: center;
+    }
+
+    /*button toggle add widget DISABLE(default) styles BEGIN*/
+    .toggleAddWidgetSwitch {
+        border: none;
+        box-shadow: 0px 0px 1px rgb(20 20 20/1);
         color: white;
+        background: var(--toggleAddWidgetSwitchDark);
+        border-radius: 25px;
+        width: 80%;
+        height: 70%;
+        display: flex;
+        align-items: center;
     }
 
-    .lightThem .boxFigureContainer {
-        background: #fcfdff;
-        color: #040918;
-        border: 1px solid rgb(50 50 50/.2);
-        box-shadow:
-            2px 3px 10px rgb(120 120 120/ .4),
-            -2px -2px 10px rgb(10 10 10/.1);
+    /*button toggle add widget DISABLE(default) styles END*/
+
+    .activeStylesWidget {
+        background: var(--activeStylesWidget);
     }
 
-    .lightThem .boxFigureContainer header p {
-        font-weight: 350;
-        color: var(--colorTextLightThem);
+    .toggleAddWidgetSwitch i {
+        width: 20px;
+        height: 25px;
+        display: flex;
+        transform: scale(.6);
+        transition: transform 1.4s ease-in-out;
+        align-items: center;
+        justify-content: center;
     }
 
-    .lightThem .boxFigureContainer .removeButtWidget {
-        color: var(--removeWidgetButtLight);
+    .switch .toggleAddWidgetSwitch .activeMoveSlider {
+        transform: scale(.8) translate(100%);
+        align-items: center;
+        padding: 0 11px;
     }
-
-    .lightThem .switch .toggleAddWidgetSwitch {
-        background: #c7c7c7;
-        color: white;
-    }
-
-    .lightThem .switch .toggleAddWidgetSwitch.activeStylesWidget {
-        background: #c2211b;
-    }
-
-    /*light Theme Config END*/
-    /*CONFIG LIGHT AND DARK THEME END*/
-
 }
+
+/*CONFIG LIGHT AND DARK THEME BEGIN*/
+/*Dark Theme Config BEGIN*/
+.darkThem {
+    background: linear-gradient(180deg, #040918 0%, #091540 100%);
+}
+
+.darkThem #headerMainTag .svgThemeChange {
+    background: var(--svgThemeDark);
+    border: 2px solid rgb(20 20 20/.7);
+    outline: 3px solid rgb(255 90 90/1);
+}
+
+.darkThem #headerMainTag .svgThemeChange .sunIcon {
+    display: none;
+}
+
+.darkThem #headerMainTag .svgThemeChange .moonIcon {
+    display: block;
+}
+
+.darkThem .boxFigureContainer {
+    background: var(--boxFigureContainerDark);
+}
+
+
+/*Dark Theme Config END*/
+
+/*light Theme Config BEGIN*/
+.lightThem {
+    background: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+}
+
+.lightThem #wrapperContainerAllPage {
+    background: var(--backLightColor);
+}
+
+.lightThem #headerMainTag {
+    background: var(--headerThemeLight);
+    box-shadow: 0px 0px 5px rgb(30 30 30/.2);
+}
+
+.lightThem .containerLogoMainHeaderPage svg path:not(:first-child) {
+    fill: #091540;
+}
+
+.lightThem.svgThemeChange {
+    background: #e5e5e5;
+    border: none;
+    outline: 3px solid rgb(255 90 90/1);
+}
+
+.lightThem.svgThemeChange svg path {
+    stroke: #040918;
+}
+
+.lightThem .containerNavInfo .tittleNavBar {
+    color: #091540 !important;
+}
+
+.lightThem .containerNavInfo .clearFilter{
+    color: var(--colorTextLightThem);
+}
+
+.lightThem .containerBoxOfButtons .buttNavSect {
+    background: #fefeff;
+    color: var(--colorTextLightThem);
+    font-weight: 500;
+}
+
+.lightThem .containerBoxOfButtons .buttNavSect.activeButtNavSect {
+    background: #c2211b;
+    color: white;
+    border: 2px solid #ffe;
+}
+
+.lightThem .boxFigureContainer {
+    background: #fcfdff;
+    color: #040918;
+    border: 1px solid rgb(50 50 50/.2);
+    box-shadow:
+        2px 3px 10px rgb(120 120 120/ .4),
+        -2px -2px 10px rgb(10 10 10/.1);
+}
+
+.lightThem .boxFigureContainer header p {
+    font-weight: 350;
+    color: var(--colorTextLightThem);
+}
+
+.lightThem .boxFigureContainer .removeButtWidget {
+    color: var(--removeWidgetButtLight);
+}
+
+.lightThem .switch .toggleAddWidgetSwitch {
+    background: #c7c7c7;
+    color: white;
+}
+
+.lightThem .switch .toggleAddWidgetSwitch.activeStylesWidget {
+    background: #c2211b;
+}
+
+/*light Theme Config END*/
+/*CONFIG LIGHT AND DARK THEME END*/

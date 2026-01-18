@@ -3,7 +3,7 @@ const buttonsNavSec = document.querySelectorAll(".buttNavSect");
 const allCards = document.querySelectorAll(".boxFigureContainer");
 
 const resetB = document.querySelector(".clearFilter");
-resetB.addEventListener("click", clearFiler, false);
+resetB.addEventListener("click", clearFilter, false);
 
 //************** add event listeners BEGIN **************
 buttonsNavSec.forEach((butt) => {
@@ -99,11 +99,10 @@ function showInactive(cards, status) {
     });
 };
 
-function clearFiler(){
+function clearFilter() {
     localStorage.clear();
-    refresh()
 }
 
-function refresh(){
-    window.location.reload();
+export function refresh(ee) {
+    console.log(`objectRefresh: ${ee.target}`);
 }
