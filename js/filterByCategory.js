@@ -52,6 +52,7 @@ function showCountedCards(filterKey, el) {
     }
 }
 
+let filtOpt = "";
 function showAll(cards) {
     console.log("show all cards");
     cards.forEach((card) => {
@@ -60,7 +61,7 @@ function showAll(cards) {
 }
 
 function showActive(cards, status) {
-
+    filtOpt = "FuACTIVE";
     console.log(`status: ${status}`);
 
     let ks = Object.keys(localStorage).filter((key) => localStorage.getItem(key) === "active");
@@ -81,6 +82,7 @@ function showActive(cards, status) {
 
 
 function showInactive(cards, status) {
+    filtOpt = "FuINACTIVE";
     console.log(`status: ${status}`);
 
     let ks = Object.keys(localStorage).filter((key) => localStorage.getItem(key) === "inactive");
@@ -103,6 +105,12 @@ function clearFilter() {
     localStorage.clear();
 }
 
-export function refresh(ee) {
-    console.log(`objectRefresh: ${ee.target}`);
+export function rmBox(boxSel) {
+    let boxId = boxSel.getAttribute("Id");
+    console.log(`obj:${boxSel} -- Id: ${boxId}`);
+    if (filtOpt === "FuACTIVE" || filtOpt === "FuINACTIVE") {
+        (() => {
+            boxSel.style.display = "none";
+        })()
+    }
 }

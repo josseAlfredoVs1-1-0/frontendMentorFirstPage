@@ -1,7 +1,7 @@
 import { darkAll } from './applyDarkInitial.js';
 import { applyStyles } from './ActionRemove.js';
 import './filterByCategory.js';
-import { refresh } from './filterByCategory.js';
+import { rmBox } from './filterByCategory.js';
 import './changeTheme.js';
 import { confg } from './changeTheme.js'
 
@@ -28,6 +28,7 @@ if (typeof document !== "undefined" &&
             let currIcon = currButtSwitch.querySelector("i");
             let idCurrentTarget = currButtSwitch.closest(".boxFigureContainer").getAttribute("id")
             let active = localStorage.getItem(idCurrentTarget) === "active" ? true : false;
+            let boxToRem = currButtSwitch.closest(".boxFigureContainer");
 
             if (!active) {
                 currButtSwitch.classList.add("activeStylesWidget");
@@ -37,8 +38,7 @@ if (typeof document !== "undefined" &&
                 currButtSwitch.classList.remove("activeStylesWidget");
                 currIcon.classList.remove("activeMoveSlider");
                 console.log(`class list: ${currIcon.classList} INACTIVE NOW`);
-                let boxRem = currButtSwitch.closest(".boxFigure").getAttribute("Id");
-                console.log(`curr butt widgetActiveFunction: ${boxRem}`);
+                rmBox(boxToRem);
             }
         }
         //toggle active widget button end
