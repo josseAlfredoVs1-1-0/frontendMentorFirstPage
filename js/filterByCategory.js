@@ -33,7 +33,6 @@ function toggleActiveNavButton(e) {
             showAll(allCards);
         })();
     // END operator ternary  ⬆️⬆️
-
 };
 
 function showCountedCards(filterKey, el) {

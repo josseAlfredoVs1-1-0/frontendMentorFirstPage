@@ -152,6 +152,12 @@
     place-content: center;
 }
 
+.switch .toggleAddWidgetSwitch .activeMoveSlider {
+        transform: scale(.8) translate(100%);
+        align-items: center;
+        padding: 0 11px;
+    }
+
 /*END STYLES WITHOUT MEDIA QUERY END*/
 
 /* MOBILE SCREEN VIEWPORT*/
@@ -667,7 +673,7 @@
     color: #091540 !important;
 }
 
-.lightThem .containerNavInfo .clearFilter{
+.lightThem .containerNavInfo .clearFilter {
     color: var(--colorTextLightThem);
 }
 

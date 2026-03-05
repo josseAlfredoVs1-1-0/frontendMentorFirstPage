@@ -1,4 +1,3 @@
-import { getItemsLS } from "./getItems.js";
 
 //Remove button widget card
 const buttonsRemoveWidgetCard = document.querySelectorAll(".removeButtWidget");
@@ -29,12 +28,6 @@ function actionRemoveWidgetActive(e) {
     applyInRealTime(boxClosst);
 }
 // remove widget active function END
-
-//apply styles from local Storage to begin web page
-export function applyStyles() {
-    getItemsLS();
-    //reload new styles before remove
-}
 
 function applyInRealTime(el) {
     let swtch = el.querySelector(".toggleAddWidgetSwitch");
