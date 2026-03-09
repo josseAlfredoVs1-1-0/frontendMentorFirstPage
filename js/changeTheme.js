@@ -1,8 +1,5 @@
 import { cardsStatus } from './toggleCardsSwtch.js';
 
-
-console.log(`cardStatus(): ${cardsStatus().st.cards}`);
-
 //change theme navbar button toggle light / dark theme
 document.querySelector(".toggleTheme").addEventListener("click", changeTheme, false);
 //************** add event listeners END **************

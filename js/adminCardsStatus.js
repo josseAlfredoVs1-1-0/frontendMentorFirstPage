@@ -10,7 +10,7 @@ if (typeof document !== "undefined" &&
 
         darkAll();
         cardsStatus();
-
+        //chargeState();
     });
 };
  
