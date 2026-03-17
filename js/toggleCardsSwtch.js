@@ -24,43 +24,55 @@ export function cardsStatus() {
 
     /* ***** LOGIC ***** */
     function loadStateCrs() {
-        let svd = localStorage.getItem("state");
-        if (svd) {
-            st.cards = JSON.parse(svd).map(c => ({ id: c.id, active: c.active }));
-        } else {
-            let strnify = JSON.stringify(allIdCard.map(id => ({ id, active: false })));
-            localStorage.setItem("state", strnify);
-
-            st.cards = JSON.parse(strnify).map(e => {
-                localStorage.setItem(e.id, e.active);
-                swTgglRndr();
-            });
+        if (!inSt().length) {
+            let ks = Object.keys(localStorage);
+            console.log("ks: ", ks)
+            st.cards = inLS().map(e => ({ id: e.id, active: e.active })).filter(e => e.id !== ks["state"]);
         }
-        rdrCrds();
+        inSt();
+    }
+
+    //GET ITEMS STORED IN LOCALSTORAGE
+    function inLS() {
+        console.log("in localStorage");
+        let items = Object.entries(localStorage).map(([id, status]) => ({ id, active: status }));
+        console.log(items);
+        return items
+    }
+    function inSt() {
+        console.log("in st.cards");
+        let items = st.cards;
+        console.log(items);
+        return items
+    }
+
+    function setItemLS() {
+        let strnify = JSON.stringify(allIdCard.map(id => ({ id, active: st.cards.find(c => c.id === id).active || "false" })));
+        localStorage.setItem("state", strnify);
     }
 
     function tggSwt(e) {
         let id = e.currentTarget.closest(".boxFigureContainer").getAttribute("id");
         let card = st.cards.find(c => c.id === id)
         card.active = !card.active;
-        let va = { id, active: card.active }
 
-        rdrCrds(id);
-        storeCardsSt(va);
-        swTgglRndr();
+        storeCardsSt(card);
+        rndrGlo();
     }
 
-    function storeCardsSt(va) {
-        if (va) {
-            let thsCr = st.cards.find(c => c.id === va.id);
-            console.log("va:", thsCr, "typeof:", typeof thsCr);
-            localStorage.setItem(thsCr.id, thsCr.active)
-        }
-        rdrCrds();
-        console.log(`in chargeState()`);
+    function storeCardsSt(ca) {
+        console.log("in storeCardsSt()");
+        localStorage.setItem(ca.id, ca.active)
+
+
+        console.log(`card stored ${ca.id}.active: ${ca.active} `);
     }
 
     /* ***** RENDER ***** */
+    function rndrGlo() {
+        swTgglRndr();
+    }
+
     function swTgglRndr() {
         st.cards.forEach((card) => {
             let sw = document.getElementById(card.id).querySelector(".toggleAddWidgetSwitch");
@@ -74,19 +86,6 @@ export function cardsStatus() {
                 sldr.classList.remove("activeMoveSlider");
             }
         });
-    }
-
-    function rdrCrds(id) {
-        console.log(`cards stored in localStorage - in fn rdrCrds():`);
-        if (id) {
-            let crdSe = st.cards.find(c => c.id === id);
-            console.log(`c: ${crdSe.id}`);
-        } else {
-            st.cards.forEach((e) => {
-                console.log(`id: ${e.id}-active:${e.active}`);
-            });
-        }
-        console.log(`in rndrCrds()`);
     }
 
     /* ***** output value function ***** */
