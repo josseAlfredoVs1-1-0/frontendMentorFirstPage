@@ -9,27 +9,34 @@ export function cardsStatus() {
 
     /* ***** STATUS ***** */
     let st = {
+        test: [],
         cards: [],
         filter: "All",
         theme: "Dark",
     }
 
     /* ***** EVENTS ***** */
-    window.addEventListener("load", loadStateCrs, false);
-
     const buttonsSwitch = document.querySelectorAll(".toggleAddWidgetSwitch");
     buttonsSwitch.forEach((butt) => {
         butt.addEventListener("click", tggSwt, false);
     });
 
+    window.addEventListener("load", loadStateCrs, false);
+
     /* ***** LOGIC ***** */
     function loadStateCrs() {
-        if (!inSt().length) {
-            let ks = Object.keys(localStorage);
-            console.log("ks: ", ks)
-            st.cards = inLS().map(e => ({ id: e.id, active: e.active })).filter(e => e.id !== ks["state"]);
+        if (inSt().length < 1 && inLS().length < 1) {
+            st.cards = allIdCard.map((e) => ({ id: e, active: false }));
         }
-        inSt();
+        console.log("test: ", st.test, "cards: ", st.cards);
+
+        /*
+            if (!inSt().length < 1 && !inSt().length < 1) {
+                let ks = Object.keys(localStorage);
+                console.log("ks: ", ks)
+                st.cards = inLS().map(e => ({ id: e.id, active: e.active })).filter(e => e.id !== ks["state"]);
+            }
+        */
     }
 
     //GET ITEMS STORED IN LOCALSTORAGE
@@ -53,7 +60,7 @@ export function cardsStatus() {
 
     function tggSwt(e) {
         let id = e.currentTarget.closest(".boxFigureContainer").getAttribute("id");
-        let card = st.cards.find(c => c.id === id)
+        let card = st.cards.find(c => c.id === id);
         card.active = !card.active;
 
         storeCardsSt(card);
@@ -66,6 +73,7 @@ export function cardsStatus() {
 
 
         console.log(`card stored ${ca.id}.active: ${ca.active} `);
+        console.log("cards rendered: ", st.cards);
     }
 
     /* ***** RENDER ***** */
