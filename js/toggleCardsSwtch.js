@@ -9,7 +9,6 @@ export function cardsStatus() {
 
     /* ***** STATUS ***** */
     let st = {
-        test: [],
         cards: [],
         filter: "All",
         theme: "Dark",
@@ -24,56 +23,39 @@ export function cardsStatus() {
     window.addEventListener("load", loadStateCrs, false);
 
     /* ***** LOGIC ***** */
+    /* FUNCTION LOAD BEGIN  --  FUNCTION LOAD BEGIN */
     function loadStateCrs() {
-        if (inSt().length < 1 && inLS().length < 1) {
-            st.cards = allIdCard.map((e) => ({ id: e, active: false }));
+        let ksLS = Object.keys(localStorage);
+        //Exist in localStorage so USE asiggn to "st"
+        console.log("length of ksLS: ", ksLS.length, "typeofOf box2: ", typeof JSON.parse(localStorage.getItem("box2")), "ksLS:", ksLS);
+        if (ksLS.length > 1) {
+            st.cards = ksLS.map(e => ({ id: e, active: JSON.parse(localStorage.getItem(e)) }));
+            //No exist so CREATE DEFAULT "st"
+        } else {
+            st.cards = allIdCard.map(e => ({ id: e, active: false }));
         }
-        console.log("test: ", st.test, "cards: ", st.cards);
+        console.log("loaded state: ", st.cards);
+        console.log("in localStorage: ", "box2: ", JSON.parse(localStorage.getItem("box2")), localStorage);
+        rndrGlo();
+    }
+    /* FUNCTION LOAD END  --  FUNCTION LOAD END */
 
-        /*
-            if (!inSt().length < 1 && !inSt().length < 1) {
-                let ks = Object.keys(localStorage);
-                console.log("ks: ", ks)
-                st.cards = inLS().map(e => ({ id: e.id, active: e.active })).filter(e => e.id !== ks["state"]);
-            }
-        */
-    }
 
-    //GET ITEMS STORED IN LOCALSTORAGE
-    function inLS() {
-        console.log("in localStorage");
-        let items = Object.entries(localStorage).map(([id, status]) => ({ id, active: status }));
-        console.log(items);
-        return items
+    /* FUNCTION SAVE END  --  FUNCTION SAVE END */
+    function save() {
+        st.cards.forEach(c => localStorage.setItem(c.id, c.active));
     }
-    function inSt() {
-        console.log("in st.cards");
-        let items = st.cards;
-        console.log(items);
-        return items
-    }
+    /* FUNCTION SAVE END  --  FUNCTION SAVE END */
 
-    function setItemLS() {
-        let strnify = JSON.stringify(allIdCard.map(id => ({ id, active: st.cards.find(c => c.id === id).active || "false" })));
-        localStorage.setItem("state", strnify);
-    }
 
     function tggSwt(e) {
+        console.log("in ST.cards: ", st.cards);
         let id = e.currentTarget.closest(".boxFigureContainer").getAttribute("id");
         let card = st.cards.find(c => c.id === id);
         card.active = !card.active;
 
-        storeCardsSt(card);
+        save();
         rndrGlo();
-    }
-
-    function storeCardsSt(ca) {
-        console.log("in storeCardsSt()");
-        localStorage.setItem(ca.id, ca.active)
-
-
-        console.log(`card stored ${ca.id}.active: ${ca.active} `);
-        console.log("cards rendered: ", st.cards);
     }
 
     /* ***** RENDER ***** */
