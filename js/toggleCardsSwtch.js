@@ -1,21 +1,20 @@
 
-;
 export function cardsStatus() {
 
     /* ***** QUERYS ***** */
     let allCards = [...document.querySelectorAll(".boxFigureContainer")];
     let allIdCard = allCards.map(c => c.getAttribute("id"))
+    const buttonsSwitch = document.querySelectorAll(".toggleAddWidgetSwitch");
 
 
     /* ***** STATUS ***** */
     let st = {
         cards: [],
         filter: "All",
-        theme: "Dark",
+        themeDark: true,
     }
 
     /* ***** EVENTS ***** */
-    const buttonsSwitch = document.querySelectorAll(".toggleAddWidgetSwitch");
     buttonsSwitch.forEach((butt) => {
         butt.addEventListener("click", tggSwt, false);
     });
@@ -23,33 +22,23 @@ export function cardsStatus() {
     window.addEventListener("load", loadStateCrs, false);
 
     /* ***** LOGIC ***** */
-    /* FUNCTION LOAD BEGIN  --  FUNCTION LOAD BEGIN */
     function loadStateCrs() {
         let ksLS = Object.keys(localStorage);
-        //Exist in localStorage so USE asiggn to "st"
-        console.log("length of ksLS: ", ksLS.length, "typeofOf box2: ", typeof JSON.parse(localStorage.getItem("box2")), "ksLS:", ksLS);
+        //Exist in localStorage USE to "st"
         if (ksLS.length > 1) {
             st.cards = ksLS.map(e => ({ id: e, active: JSON.parse(localStorage.getItem(e)) }));
-            //No exist so CREATE DEFAULT "st"
+            //No exist CREATE DEFAULT "st"
         } else {
             st.cards = allIdCard.map(e => ({ id: e, active: false }));
         }
-        console.log("loaded state: ", st.cards);
-        console.log("in localStorage: ", "box2: ", JSON.parse(localStorage.getItem("box2")), localStorage);
         rndrGlo();
     }
-    /* FUNCTION LOAD END  --  FUNCTION LOAD END */
 
-
-    /* FUNCTION SAVE END  --  FUNCTION SAVE END */
     function save() {
         st.cards.forEach(c => localStorage.setItem(c.id, c.active));
     }
-    /* FUNCTION SAVE END  --  FUNCTION SAVE END */
-
 
     function tggSwt(e) {
-        console.log("in ST.cards: ", st.cards);
         let id = e.currentTarget.closest(".boxFigureContainer").getAttribute("id");
         let card = st.cards.find(c => c.id === id);
         card.active = !card.active;
@@ -58,7 +47,7 @@ export function cardsStatus() {
         rndrGlo();
     }
 
-    /* ***** RENDER ***** */
+    /*  RENDER //  RENDER //  RENDER //  RENDER // RENDER //  */
     function rndrGlo() {
         swTgglRndr();
     }
