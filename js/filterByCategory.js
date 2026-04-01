@@ -1,6 +1,16 @@
-//variables for toggle switch active | All - Active | Inactive
+/* IMPORT // IMPORT // IMPORT // IMPORT //  */
+import { cardsStatus } from "./toggleCardsSwtch";
+
+
+/* QUERY  // QUERY // QUERY // QUERY //  */
 const buttonsNavSec = document.querySelectorAll(".buttNavSect");
-const allCards = document.querySelectorAll(".boxFigureContainer");
+
+
+/* EVENTS // EVENTS // EVENTS // EVENTS //  */
+
+/* LOGIC  // LOGIC // LOGIC // LOGIC //  */
+/* RENDER  // RENDER // RENDER // RENDER //  */
+
 
 const resetB = document.querySelector(".clearFilter");
 resetB.addEventListener("click", clearFilter, false);

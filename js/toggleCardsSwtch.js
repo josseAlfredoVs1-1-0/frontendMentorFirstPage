@@ -50,6 +50,7 @@ export function cardsStatus() {
     /*  RENDER //  RENDER //  RENDER //  RENDER // RENDER //  */
     function rndrGlo() {
         swTgglRndr();
+        console.log(`in rndrGlo()`);
     }
 
     function swTgglRndr() {
@@ -68,5 +69,8 @@ export function cardsStatus() {
     }
 
     /* ***** output value function ***** */
-    return { st }
+    return {
+        st: st,
+        fnRndr: rndrGlo,
+    }
 }

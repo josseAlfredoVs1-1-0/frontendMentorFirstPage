@@ -6,6 +6,9 @@ import { cardsStatus } from './toggleCardsSwtch.js';
 
 /*           QUERYS // QUERYS // QUERYS // QUERYS           */
 let state = cardsStatus().st;
+let fnRndrG = cardsStatus.fnRdr;
+console.log(`rendedr: ${fnRndrG}`);
+
 let ButtChangeThe = document.querySelector(".toggleTheme");
 let sun = document.querySelector(".sunIcon");
 let moon = document.querySelector(".moonIcon");
