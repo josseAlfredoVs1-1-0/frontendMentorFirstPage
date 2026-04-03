@@ -1,18 +1,11 @@
+/* IMPORT // IMPORT // IMPORT // IMPORT  */
+import { st } from './state.js'
 
 export function cardsStatus() {
-
     /* ***** QUERYS ***** */
     let allCards = [...document.querySelectorAll(".boxFigureContainer")];
     let allIdCard = allCards.map(c => c.getAttribute("id"))
     const buttonsSwitch = document.querySelectorAll(".toggleAddWidgetSwitch");
-
-
-    /* ***** STATUS ***** */
-    let st = {
-        cards: [],
-        filter: "All",
-        themeDark: true,
-    }
 
     /* ***** EVENTS ***** */
     buttonsSwitch.forEach((butt) => {
@@ -34,17 +27,18 @@ export function cardsStatus() {
         rndrGlo();
     }
 
-    function save() {
-        st.cards.forEach(c => localStorage.setItem(c.id, c.active));
-    }
 
     function tggSwt(e) {
         let id = e.currentTarget.closest(".boxFigureContainer").getAttribute("id");
         let card = st.cards.find(c => c.id === id);
         card.active = !card.active;
 
-        save();
+        save(card);
         rndrGlo();
+    }
+
+    function save(c) {
+        localStorage.setItem(c.id, c.active);
     }
 
     /*  RENDER //  RENDER //  RENDER //  RENDER // RENDER //  */
@@ -66,11 +60,5 @@ export function cardsStatus() {
                 sldr.classList.remove("activeMoveSlider");
             }
         });
-    }
-
-    /* ***** output value function ***** */
-    return {
-        st: st,
-        fnRndr: rndrGlo,
     }
 }

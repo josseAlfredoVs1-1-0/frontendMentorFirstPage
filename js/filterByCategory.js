@@ -1,24 +1,28 @@
 /* IMPORT // IMPORT // IMPORT // IMPORT //  */
-import { cardsStatus } from "./toggleCardsSwtch";
+import { st } from "./state.js";
+
 
 
 /* QUERY  // QUERY // QUERY // QUERY //  */
 const buttonsNavSec = document.querySelectorAll(".buttNavSect");
+const resetB = document.querySelector(".clearFilter");
 
 
 /* EVENTS // EVENTS // EVENTS // EVENTS //  */
-
-/* LOGIC  // LOGIC // LOGIC // LOGIC //  */
-/* RENDER  // RENDER // RENDER // RENDER //  */
-
-
-const resetB = document.querySelector(".clearFilter");
-resetB.addEventListener("click", clearFilter, false);
-
-//************** add event listeners BEGIN **************
 buttonsNavSec.forEach((butt) => {
     butt.addEventListener("click", toggleActiveNavButton, false);
 });
+resetB.addEventListener("click", clearFilter, false);
+
+
+/* LOGIC  // LOGIC // LOGIC // LOGIC //  */
+let state = st;
+let activesB = state.cards.filter(c => c.active == true);
+console.log("in filter by category(): ", activesB, state.cards);a
+
+
+/* RENDER  // RENDER // RENDER // RENDER //  */
+
 
 //Toogle button active nav section
 function toggleActiveNavButton(e) {
@@ -61,7 +65,6 @@ function showCountedCards(filterKey, el) {
     }
 }
 
-let filtOpt = "";
 function showAll(cards) {
     console.log("show all cards");
     cards.forEach((card) => {

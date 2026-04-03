@@ -1,13 +1,11 @@
 
 /*           IMPORTS // IMPORTS // IMPORTS // IMPORTS           */
-import { cardsStatus } from './toggleCardsSwtch.js';
+import { st } from './state.js';
 
 
 
 /*           QUERYS // QUERYS // QUERYS // QUERYS           */
-let state = cardsStatus().st;
-let fnRndrG = cardsStatus.fnRdr;
-console.log(`rendedr: ${fnRndrG}`);
+let state = st;
 
 let ButtChangeThe = document.querySelector(".toggleTheme");
 let sun = document.querySelector(".sunIcon");
