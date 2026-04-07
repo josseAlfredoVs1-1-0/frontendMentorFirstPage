@@ -1,12 +1,14 @@
 import { st } from "./state.js";
 
+console.log("in render.js FILE");
+
 export function rndrGlo() {
     swTgglRndr();
     console.log(`in rndrGlo()`);
 }
 
-function swTgglRndr() {
-    console.log(`in render swtches: `);
+export function swTgglRndr() {
+    console.log(`in swTgglRndr(): `);
     st.cards.forEach((card) => {
         let sw = document.getElementById(card.id).querySelector(".toggleAddWidgetSwitch");
         let sldr = sw.querySelector("i");

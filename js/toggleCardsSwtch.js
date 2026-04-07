@@ -18,8 +18,9 @@ export function cardsStatus() {
     /* ***** LOGIC ***** */
     function loadStateCrs() {
         let ksLS = Object.keys(localStorage);
+        console.log("ks of localStorage:", ksLS);
         //frst init all cards
-        if (localStorage.length < 1) {
+        if (ksLS.length < 1) {
             st.cards = allIdCard.map(e => ({ id: e, active: false }));
         }
         if (ksLS.length > 1) {
@@ -27,12 +28,13 @@ export function cardsStatus() {
             //No exist CREATE DEFAULT "st"
         }
         rndrGlo();
+        console.log("rndr loaded form state loaded:")
     }
 
 
     function tggSwt(e) {
         let id = e.currentTarget.closest(".boxFigureContainer").getAttribute("id") || null;
-        let card = st.cards.find(c => c.id === id);
+        let card = st.cards.find(c => c.id === id) || {};
         card.active = !card.active;
 
         save(card);
