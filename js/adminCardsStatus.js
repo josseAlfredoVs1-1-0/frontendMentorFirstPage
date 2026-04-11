@@ -2,6 +2,7 @@ import { darkAll } from './applyDarkInitial.js';
 import './filterByCategory.js';
 import { cardsStatus } from './toggleCardsSwtch.js';
 import {extract} from './infoJSON.js';
+import { initRemoveMod } from './ActionRemove.js'
 
 if (typeof document !== "undefined" &&
     typeof window !== "undefined") {
@@ -11,6 +12,7 @@ if (typeof document !== "undefined" &&
         darkAll();
         cardsStatus();
         extract();
+        initRemoveMod();
     });
 };
  

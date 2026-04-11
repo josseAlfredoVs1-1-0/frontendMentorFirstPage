@@ -1,6 +1,6 @@
 /* ***** STATUS ***** */
 export let st = {
     cards: [],
-    filter: "All",
+    filter: "Default",
     themeDark: true,
 }   
