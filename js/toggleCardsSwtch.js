@@ -33,11 +33,13 @@ export function cardsStatus() {
 
 
     function tggSwt(e) {
-        let id = e.currentTarget.closest(".boxFigureContainer").getAttribute("id") || null;
-        let card = st.cards.find(c => c.id === id) || {};
-        card.active = !card.active;
+        let id = e.currentTarget.closest(".boxFigureContainer").getAttribute("id");
+        if (id) {
+            let card = st.cards.find(c => c.id === id);
+            card.active = !card.active;
+            save(card);
+        }
 
-        save(card);
         rndrGlo();
     }
 

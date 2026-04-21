@@ -1,6 +1,6 @@
 /* IMPORT // IMPORT // IMPORT // IMPORT //  */
 import { st } from "./state.js";
-import { rndrGlo } from "./render.js";
+import { swTgglRndr } from "./render.js";
 
 console.log("filter INIT");
 
@@ -38,11 +38,25 @@ function selectFilt(e) {
             inactive();
             break;
     }
+    renderStylesButt(e);
 }
 
 
 
 /* RENDER //  RENDER //  RENDER //  RENDER // */
+function renderStylesButt(t) {
+    /* LI container button DOM element */
+    let butt = t.currentTarget;
+
+    console.log(" DOM T: ", butt);
+    
+    if (s.filter !== "default") {
+        butt.classList.add(".activeButtNavSect");
+    } else {
+        butt.classList.remove("activeButtNavSect");
+    }
+}
+
 function all() {
     console.log("show all:");
     s.cards.forEach(e => e.style.display = "visible");
@@ -69,5 +83,5 @@ function inactive() {
 function clearFilter() {
     localStorage.clear();
     console.log(`reloading all cards: `);
-    rndrGlo();
+    swTgglRndr();
 }

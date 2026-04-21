@@ -248,13 +248,17 @@
         color: #EBF2FC;
     }
 
+    .containerNavInfo .clearFilter {
+        border: 2px solid magenta;
+    }
+
     .containerBoxOfButtons {
         width: 85%;
-        height: 4rem;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
     }
+
 
     .containerBoxOfButtons li {
         width: auto;
@@ -488,7 +492,6 @@
 
     .containerNavInfo .clearFilter {
         width: 10%;
-        height: 60%;
         background: transparent;
         color: white;
         border-radius: 20px;
@@ -502,8 +505,6 @@
         flex-direction: row;
         align-items: center;
         justify-content: end;
-        width: 40%;
-        height: 100%;
     }
 
     .containerBoxOfButtons .buttNavSect {

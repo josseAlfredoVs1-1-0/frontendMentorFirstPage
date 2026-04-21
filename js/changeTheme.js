@@ -39,7 +39,7 @@ function toggleTHeme() {
 /*           RENDER // RENDER // RENDER // RENDER           */
 function changeTheme(e) {
     console.log(`currentTheme: ${state.theme}`);
-    if (!state.theme) {
+    if (state.theme) {
         Object.entries(confg).forEach(([_, val]) => {
             if (!val) {
                 return;

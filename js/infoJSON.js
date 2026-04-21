@@ -1,10 +1,11 @@
 import data from './../json/data.json' with {type: "json"};
 
+/* VARIABLES // VARIABLES // VARRIABLES */
+let i = data;
+
 
 /* EXAMPLE JSON EXTRACT INFO // EXAMPLE JSON ECTRACT INFO */
 export function extract() {
-    console.log("data: ", data);
+    console.log(i);
 }
-console.log(`extract() init`);
-
-console.log(localStorage);
+//console.log(`extract() init`);
