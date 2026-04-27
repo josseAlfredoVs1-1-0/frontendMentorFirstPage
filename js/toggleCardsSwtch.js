@@ -18,35 +18,35 @@ export function cardsStatus() {
     /* ***** LOGIC ***** */
     function loadStateCrs() {
         let ksLS = Object.keys(localStorage);
-        console.log("ks of localStorage:", ksLS);
         //frst init all cards
-        if (ksLS.length < 1) {
+        if (ksLS.length == 0) {
             st.cards = allIdCard.map(e => ({ id: e, active: false }));
+            st.cards.forEach((c) => save(c));
         }
-        if (ksLS.length > 1) {
-            st.cards = ksLS.map(e => ({ id: e, active: JSON.parse(localStorage.getItem(e)) }));
-            //No exist CREATE DEFAULT "st"
-        }
-        rndrGlo();
-        console.log("rndr loaded form state loaded:")
-    }
 
-
-    function tggSwt(e) {
-        let id = e.currentTarget.closest(".boxFigureContainer").getAttribute("id");
-        if (id) {
-            let card = st.cards.find(c => c.id === id);
-            card.active = !card.active;
-            save(card);
+        if (ksLS.length != 0) {
+            st.cards = allIdCard.map((id) => {
+                let k = JSON.parse(localStorage.getItem(id));
+                if (localStorage.hasOwnProperty(id)) {
+                    return ({ id: id, active: k });
+                } else {
+                    return ({ id: id, active: false });
+                }
+            });
         }
 
         rndrGlo();
     }
+}
 
-    function save(c) {
-        localStorage.setItem(c.id, c.active);
-    }
+export function tggSwt(e) {
+    let id = e.target.closest(".boxFigureContainer").getAttribute("id");
+    let card = st.cards.find(c => c.id === id);
+    card.active = !card.active;
+    save(card);
+    rndrGlo();
+}
 
-    /*  RENDER //  RENDER //  RENDER //  RENDER // RENDER //  */
-
+function save(c) {
+    localStorage.setItem(c.id, c.active);
 }

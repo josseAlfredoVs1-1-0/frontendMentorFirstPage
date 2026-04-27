@@ -1,3 +1,6 @@
+import { st } from "./state.js"
+import { tggSwt } from './toggleCardsSwtch.js'
+
 /* INIT ESPECS //  INIT ESPECS //  INIT ESPECS // */
 export function initRemoveMod() {
     /* QUERYS //  QUERYS //  QUERYS //  QUERYS //  */
@@ -13,6 +16,10 @@ export function initRemoveMod() {
 
 /* LOGIC //  LOGIC //  LOGIC //  LOGIC // */
 function removWidg(e) {
-    let crrnt = e.currentTarget;
-    console.log("widget to Remove: ", crrnt);
+    let thsCrdID = e.target.closest(".boxFigureContainer").getAttribute("id");
+    console.log("card to remove (id): ", thsCrdID);
+    if (st.cards.find(c => c.id === thsCrdID).active) {
+        tggSwt(e);
+        console.log("disabled")
+    }
 }

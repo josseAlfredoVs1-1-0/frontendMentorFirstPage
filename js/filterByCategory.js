@@ -18,14 +18,13 @@ resetB.addEventListener("click", clearFilter, false);
 
 
 /* LOGIC  // LOGIC // LOGIC // LOGIC //  */
-let s = st;
 
 function selectFilt(e) {
-    s.filter = e.currentTarget.textContent;
-    console.log("filter: ", s.filter);
+    st.filter = e.currentTarget.textContent;
+    console.log("filter: ", st.filter);
 
 
-    switch (s.filter) {
+    switch (st.filter) {
         case "All":
             all();
             break;
@@ -49,8 +48,8 @@ function renderStylesButt(t) {
     let butt = t.currentTarget;
 
     console.log(" DOM T: ", butt);
-    
-    if (s.filter !== "default") {
+
+    if (st.filter !== "default") {
         butt.classList.add(".activeButtNavSect");
     } else {
         butt.classList.remove("activeButtNavSect");
@@ -59,13 +58,13 @@ function renderStylesButt(t) {
 
 function all() {
     console.log("show all:");
-    s.cards.forEach(e => e.style.display = "visible");
+    st.cards.forEach(e => e.style.display = "visible");
 }
 
 function active() {
     console.log("show active:");
 
-    let actIDs = s.cards.filter(c => c.active == true).map(ob => document.querySelector(`#${ob.id}`));
+    let actIDs = st.cards.filter(c => c.active == true).map(ob => document.querySelector(`#${ob.id}`));
 
     actIDs.forEach(e => e.style.display = "visible");
     console.log(actIDs);
@@ -74,7 +73,7 @@ function active() {
 function inactive() {
     console.log("show inactive:");
 
-    let inacIDs = s.cards.filter(c => c.active !== true).map(ob => document.querySelector(`#${ob.id}`))
+    let inacIDs = st.cards.filter(c => c.active !== true).map(ob => document.querySelector(`#${ob.id}`))
 
     inacIDs.forEach(e => e.style.display = "visible");
     console.log(inacIDs);
