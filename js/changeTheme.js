@@ -38,12 +38,9 @@ function toggleTHeme() {
 
 /*           RENDER // RENDER // RENDER // RENDER           */
 function changeTheme(e) {
-    console.log(`currentTheme: ${state.theme}`);
+    console.log(`currentTheme (DARK) "${state.theme}"? light : dark`);
     if (state.theme) {
         Object.entries(confg).forEach(([_, val]) => {
-            if (!val) {
-                return;
-            }
             if (val instanceof NodeList) {
                 val.forEach((node) => {
                     node.classList.remove("darkThem");

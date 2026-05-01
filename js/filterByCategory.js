@@ -79,7 +79,7 @@ function inactive() {
     console.log(inacIDs);
 }
 
-function clearFilter() {
+function clearFilter () {
     localStorage.clear();
     console.log(`reloading all cards: `);
     swTgglRndr();

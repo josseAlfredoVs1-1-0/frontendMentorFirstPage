@@ -17,7 +17,6 @@ export function initRemoveMod() {
 /* LOGIC //  LOGIC //  LOGIC //  LOGIC // */
 function removWidg(e) {
     let thsCrdID = e.target.closest(".boxFigureContainer").getAttribute("id");
-    console.log("card to remove (id): ", thsCrdID);
     if (st.cards.find(c => c.id === thsCrdID).active) {
         tggSwt(e);
         console.log("disabled")

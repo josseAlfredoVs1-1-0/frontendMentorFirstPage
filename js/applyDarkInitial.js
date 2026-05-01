@@ -2,7 +2,6 @@ import { confg } from './changeTheme.js'
 
 //set background dark theme BEGIN
 export function darkAll() {
-    console.log(`darkAll initialized succesfull`);
     Object.entries(confg).forEach(([_, prop]) => {
         if (prop instanceof NodeList) {
             prop.forEach((node) => {

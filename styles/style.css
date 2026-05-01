@@ -624,7 +624,7 @@
 .darkThem #headerMainTag .svgThemeChange {
     background: var(--svgThemeDark);
     border: 2px solid rgb(20 20 20/.7);
-    outline: 3px solid rgb(255 90 90/1);
+    outline: 3px solid rgb(255 255 255 / .4);
 }
 
 .darkThem #headerMainTag .svgThemeChange .sunIcon {
@@ -663,7 +663,7 @@
 .lightThem.svgThemeChange {
     background: #e5e5e5;
     border: none;
-    outline: 3px solid rgb(255 90 90/1);
+    outline: 3px solid rgb(33 25 25 / .4);
 }
 
 .lightThem.svgThemeChange svg path {
