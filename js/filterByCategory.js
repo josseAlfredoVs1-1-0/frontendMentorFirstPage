@@ -1,46 +1,47 @@
 /* IMPORT // IMPORT // IMPORT // IMPORT //  */
 import { st } from "./state.js";
-import { swTgglRndr } from "./render.js";
-
-console.log("filter INIT");
-
+import { rndrGlo } from "./render.js";
+import { renderCardsFil } from "./render.js";
 
 /* QUERY  // QUERY // QUERY // QUERY //  */
-const buttonsNavSec = document.querySelectorAll(".buttNavSect");
-const resetB = document.querySelector(".clearFilter");
+export let allCards = [...document.querySelectorAll(".boxFigureContainer")]
+ let allCardsID = allCards.map(e => e.getAttribute("id"));
 
+export function initFiltFeature() {
+    const buttonsNavSec = document.querySelectorAll(".buttNavSect");
+    const resetB = document.querySelector(".clearFilter");
 
-/* EVENTS // EVENTS // EVENTS // EVENTS //  */
-buttonsNavSec.forEach((butt) => {
-    butt.addEventListener("click", selectFilt, false);
-});
-resetB.addEventListener("click", clearFilter, false);
+    /* EVENTS // EVENTS // EVENTS // EVENTS //  */
+    buttonsNavSec.forEach((butt) => {
+        butt.addEventListener("click", selectFilt, false);
+    });
+    resetB.addEventListener("click", clearFilter, false);
+}
 
 
 /* LOGIC  // LOGIC // LOGIC // LOGIC //  */
 
 function selectFilt(e) {
     st.filter = e.currentTarget.textContent;
-    console.log("filter: ", st.filter);
+    let f = st.filter;
+    console.log("filter: ", f);
 
 
-    switch (st.filter) {
+    switch (f) {
         case "All":
-            all();
+            all(f);
             break;
 
         case "Active":
-            active();
+            active(f);
             break;
 
         case "Inactive":
-            inactive();
+            inactive(f);
             break;
     }
     renderStylesButt(e);
 }
-
-
 
 /* RENDER //  RENDER //  RENDER //  RENDER // */
 function renderStylesButt(t) {
@@ -56,31 +57,39 @@ function renderStylesButt(t) {
     }
 }
 
-function all() {
-    console.log("show all:");
-    st.cards.forEach(e => e.style.display = "visible");
+function all(info) {
+    console.log("showing all... ");
+    let allC = allCardsID.map((id) => document.querySelector(`#${id}`))
+
+    /* CALL RENDER CARDS */
+    renderCardsFil(allC);
 }
 
 function active() {
     console.log("show active:");
 
-    let actIDs = st.cards.filter(c => c.active == true).map(ob => document.querySelector(`#${ob.id}`));
+    let actIDs = st.cards.filter(c => c.active).map(ob => document.querySelector(`#${ob.id}`));
 
-    actIDs.forEach(e => e.style.display = "visible");
-    console.log(actIDs);
+    /* CALL RENDER CARDS */
+    renderCardsFil(actIDs);
 }
 
 function inactive() {
     console.log("show inactive:");
 
-    let inacIDs = st.cards.filter(c => c.active !== true).map(ob => document.querySelector(`#${ob.id}`))
+    let inacIDs = st.cards.filter(c => !c.active).map(ob => document.querySelector(`#${ob.id}`))
 
-    inacIDs.forEach(e => e.style.display = "visible");
-    console.log(inacIDs);
+    /* CALL RENDER CARDS */
+    renderCardsFil(inacIDs);
 }
 
-function clearFilter () {
-    localStorage.clear();
+function clearFilter() {
     console.log(`reloading all cards: `);
-    swTgglRndr();
+    localStorage.clear();
+    st.cards.forEach((c) => {
+        if (c.active) {
+            c.active = !c.active;
+        }
+    });
+    rndrGlo();
 }
