@@ -1,6 +1,6 @@
 /* IMPORT // IMPORT // IMPORT // IMPORT  */
 import { st } from './state.js'
-import { rndrGlo } from './render.js';
+import { renderCardsFil, rndrGlo } from './render.js';
 
 export function cardsStatus() {
     /* ***** QUERYS ***** */

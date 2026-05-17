@@ -5,10 +5,10 @@ import { renderCardsFil } from "./render.js";
 
 /* QUERY  // QUERY // QUERY // QUERY //  */
 export let allCards = [...document.querySelectorAll(".boxFigureContainer")]
- let allCardsID = allCards.map(e => e.getAttribute("id"));
+let allCardsID = allCards.map(e => e.getAttribute("id"));
+const buttonsNavSec = document.querySelectorAll(".buttNavSect");
 
 export function initFiltFeature() {
-    const buttonsNavSec = document.querySelectorAll(".buttNavSect");
     const resetB = document.querySelector(".clearFilter");
 
     /* EVENTS // EVENTS // EVENTS // EVENTS //  */
@@ -29,15 +29,15 @@ function selectFilt(e) {
 
     switch (f) {
         case "All":
-            all(f);
+            all();
             break;
 
         case "Active":
-            active(f);
+            active();
             break;
 
         case "Inactive":
-            inactive(f);
+            inactive();
             break;
     }
     renderStylesButt(e);
@@ -51,18 +51,17 @@ function renderStylesButt(t) {
     console.log(" DOM T: ", butt);
 
     if (st.filter !== "default") {
-        butt.classList.add(".activeButtNavSect");
+        buttonsNavSec.forEach(e => e.classList.remove("activeButtNavSect"))
+        butt.classList.add("activeButtNavSect");
     } else {
         butt.classList.remove("activeButtNavSect");
     }
 }
 
-function all(info) {
+function all() {
     console.log("showing all... ");
-    let allC = allCardsID.map((id) => document.querySelector(`#${id}`))
 
-    /* CALL RENDER CARDS */
-    renderCardsFil(allC);
+    renderCardsFil(allCards);
 }
 
 function active() {
@@ -70,7 +69,6 @@ function active() {
 
     let actIDs = st.cards.filter(c => c.active).map(ob => document.querySelector(`#${ob.id}`));
 
-    /* CALL RENDER CARDS */
     renderCardsFil(actIDs);
 }
 
@@ -79,7 +77,6 @@ function inactive() {
 
     let inacIDs = st.cards.filter(c => !c.active).map(ob => document.querySelector(`#${ob.id}`))
 
-    /* CALL RENDER CARDS */
     renderCardsFil(inacIDs);
 }
 
