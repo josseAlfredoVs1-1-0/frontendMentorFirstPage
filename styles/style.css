@@ -29,19 +29,27 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing:border-box;
     font-family: 'Noto Sans', 'Courier New', Courier, monospace;
 }
 
 @font-face {
     font-family: 'Noto Sans';
-    src: url(../assets/fonts/NotoSans-Italic-VariableFont_wdth,wght.ttf);
+    src: url(../assets/fonts/NotoSans-VariableFont_wdth\,wght.ttf);
+}
+
+html {
+    width: 100dvw;
 }
 
 /*BEGIN STYLES WITHOUT MEDIA QUERY BEGIN*/
 #bodyTagMain {
-    border: 1px solid cyan;
-    height: 100dvh;
+    height: 100%;
+    width: 100dvw;
+}
+
+#sectionMainContainer {
+    height: 50%;
 }
 
 #sectionMainContainer .tittleNavBar {
@@ -66,99 +74,22 @@
     outline: 3px solid rgb(255 110 110/1);
 }
 
-.boxFigureContainer>* {
+/* END STYLES HEADER NAV */
 
-    border: 1px double transparent;
-}
 
-.containerMainInfo {
+/*BEGIN MAIN CONTAINER CARDS*/
+#sectionMainContainer #containerC {
+    width: 100%;
     display: grid;
-    grid-template-columns: 33% 33% 33%;
-    grid-template-rows: 1fr;
-    gap: 1rem;
+
 }
 
-.boxFigureContainer {
-    display: grid;
-    grid-template-columns: 90%;
-    grid-template-rows: 70% 30%;
-    place-content: center;
+#containerC article{
+    background-color: hsl(226, 25%, 17%);
 }
 
-.boxFigureContainer header {
-    display: grid;
-    grid-template-columns: 25% 75%;
-    grid-template-rows: 1fr;
-    place-content: center;
-}
+/*END MAIN CONTAINER CARDS*/
 
-.boxFigureContainer .containerImg {
-    position: relative;
-}
-
-.boxFigureContainer header article {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-evenly;
-    padding-bottom: .5rem;
-}
-
-.boxFigureContainer header article p {
-    font-weight: 300;
-    color: rgb(200 200 200/1);
-}
-
-
-.containerImg img {
-    width: 80%;
-}
-
-.boxFigureContainer footer {
-    display: grid;
-    grid-template-columns: 15% 65% 20%;
-    grid-template-rows: 1fr;
-    place-items: center;
-}
-
-.boxFigureContainer .removeButtWidget {
-    color: white;
-    border: 1px solid hsl(0, 0%, 58%);
-    background: transparent;
-    width: 5.5rem;
-    height: 2rem;
-    border-radius: 25px;
-    display: grid;
-    place-content: center;
-    font-weight: 500;
-    transition:
-        background 1s ease,
-        color 2s ease,
-        border 1s ease-in-out;
-}
-
-.removeButtWidget.activeRemoveWidgetButt {
-    border: 1px solid rgb(90 90 90 /.2);
-    color: var(--textColorActiveRemoveWidget);
-    background: var(--activeStylesWidget);
-    transition: background 1s ease;
-}
-
-.boxFigureContainer .switch {
-    width: 3rem;
-    height: 1.5rem;
-    display: flex;
-    display: flex;
-    align-items: center;
-    place-content: center;
-}
-
-.switch .toggleAddWidgetSwitch .activeMoveSlider {
-        transform: scale(.8) translate(100%);
-        align-items: center;
-        padding: 0 11px;
-    }
-
-/*END STYLES WITHOUT MEDIA QUERY END*/
 
 /* MOBILE SCREEN VIEWPORT*/
 @media screen and (max-width: 376px) {
@@ -167,7 +98,6 @@
         padding: 2rem 1.5rem;
         height: 100%;
         min-height: 100dvh;
-        outline: 2px solid red;
         background-size: cover;
         background-repeat: no-repeat;
     }
@@ -258,7 +188,7 @@
 
     .containerBoxOfButtons li {
         width: auto;
-        border: 1px solid rgb(200 200 200/ .5);
+        border: 1px solid rgb(200 200 200/ .3);
         border-radius: 20px;
         background: hsl(225, 23%, 24%);
         list-style: none;
@@ -274,130 +204,52 @@
         display: grid;
         padding: .5rem 1rem;
     }
+    /*end header nav*/
 
-
-    .containerMainInfo {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        gap: .8rem;
+    /*begin main cards container */
+    #sectionMainContainer #containerC{
+        align-items: center;
+        justify-content: space-around;
+        gap: 1rem;
     }
 
-
-    /*styles widget card*/
-    .boxFigureContainer {
-        width: 100%;
+    #containerC article{
         height: 13rem;
-        border-radius: 20px;
+        border-radius: 10px;
         display: grid;
-        grid-template-columns: 90%;
-        grid-template-rows: 55% 25%;
-        place-content: center;
-        color: white;
+        grid-template-rows: 3fr 1.5fr;
     }
 
-    .boxFigureContainer header {
+    #containerC article header{
         display: grid;
-        grid-template-columns: 25% 75%;
-        grid-template-rows: 1fr;
-        place-content: center;
+        grid-template-columns: 1fr 3fr;
     }
 
-    .boxFigureContainer .containerImg {
-        position: relative;
-    }
-
-    .boxFigureContainer header article {
+    #containerC article header aside:first-child {
         display: flex;
-        flex-flow: column nowrap;
-        justify-content: space-between;
-        padding-bottom: .5rem;
+        justify-content: end;
+        align-items: start;
+        padding: 1rem 0 0 0;
     }
 
-    .boxFigureContainer header article p {
-        font-weight: 300;
-        color: rgb(200 200 200/1);
+    #containerC article header aside:first-child img{
+        width: 75%;
     }
 
-
-    .containerImg img {
-        width: 80%;
+    #containerC article header aside:last-child{
+        margin: .5rem 0 0 1rem;
     }
 
-    .boxFigureContainer footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: end;
+    #containerC article header aside h1,
+    #containerC article header aside p{
+        font-family: 'Noto Sans', sans-serif;        
+        color: #ccc;
     }
 
-    .boxFigureContainer .removeButtWidget {
-        color: white;
-        border: 1px solid hsl(0, 0%, 58%);
-        background: transparent;
-        width: 5.5rem;
-        height: 2rem;
-        border-radius: 25px;
-        display: grid;
-        place-content: center;
-        font-weight: 500;
-        transition:
-            background 1s ease,
-            color 2s ease,
-            border 1s ease-in-out;
+    #containerC article header aside h1{
+        font-size: 1.5rem;
     }
-
-    .removeButtWidget.activeRemoveWidgetButt {
-        border: 1px solid rgb(90 90 90 /.2);
-        color: var(--textColorActiveRemoveWidget);
-        background: var(--activeStylesWidget);
-        transition: background 1s ease;
-    }
-
-    .boxFigureContainer .switch {
-        width: 3rem;
-        height: 1.5rem;
-        display: flex;
-        display: flex;
-        align-items: center;
-        place-content: center;
-    }
-
-    /*button toggle add widget DISABLE(default) styles BEGIN*/
-    .toggleAddWidgetSwitch {
-        border: none;
-        box-shadow: 0px 0px 1px rgb(20 20 20/1);
-        color: white;
-        background: var(--toggleAddWidgetSwitchDark);
-        border-radius: 25px;
-        width: 80%;
-        height: 70%;
-        display: flex;
-        align-items: center;
-    }
-
-    /*button toggle add widget DISABLE(default) styles END*/
-
-    .activeStylesWidget {
-        background: var(--activeStylesWidget);
-    }
-
-    .toggleAddWidgetSwitch i {
-        width: 20px;
-        height: 25px;
-        display: flex;
-        transform: scale(.6);
-        transition: transform 1.4s ease-in-out;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .switch .toggleAddWidgetSwitch .activeMoveSlider {
-        transform: scale(.8) translate(100%);
-        align-items: center;
-        padding: 0 11px;
-    }
-
-    /*styles widget card*/
+    /*end main cards container */
     /*END section #sectionMainContainer*/
 }
 
@@ -406,11 +258,13 @@
 
     #bodyTagMain {
         display: flex;
+        width: 100dvw;
         height: auto;
     }
 
     #wrapperContainerAllPage {
         height: 100%;
+        width: 100dvw;
         display: flex;
         flex-direction: column;
         justify-content: start;
@@ -513,106 +367,9 @@
         width: auto;
         margin: 0 .7rem;
     }
-
-    .containerFiguresBoxes {
-        width: 99%;
-        height: 88%;
-        display: grid;
-        gap: .5rem;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-    }
-
-    .boxFigureContainer {
-        min-height: 10rem;
-        background: rgb(90 90 90/.2);
-        border-radius: 8px;
-    }
-
-    .boxFigureContainer header {
-        border: 1px solid transparent;
-    }
-
-    .boxFigureContainer header>* {
-        padding: .5rem;
-    }
-
-    .boxFigureContainer header article h4 {
-        color: white;
-    }
-
-    .boxFigureContainer footer {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .boxFigureContainer .removeButtWidget {
-        color: white;
-        border: 1px solid hsl(0, 0%, 58%);
-        background: transparent;
-        width: 5.5rem;
-        height: 2rem;
-        border-radius: 25px;
-        display: grid;
-        place-content: center;
-        font-weight: 500;
-        transition:
-            background 1s ease,
-            color 2s ease,
-            border 1s ease-in-out;
-    }
-
-    .removeButtWidget.activeRemoveWidgetButt {
-        border: 1px solid rgb(90 90 90 /.2);
-        color: var(--textColorActiveRemoveWidget);
-        background: var(--activeStylesWidget);
-        transition: background 1s ease;
-    }
-
-    .boxFigureContainer .switch {
-        width: 3rem;
-        height: 1.5rem;
-        display: flex;
-        display: flex;
-        align-items: center;
-        place-content: center;
-    }
-
-    /*button toggle add widget DISABLE(default) styles BEGIN*/
-    .toggleAddWidgetSwitch {
-        border: none;
-        box-shadow: 0px 0px 1px rgb(20 20 20/1);
-        color: white;
-        background: var(--toggleAddWidgetSwitchDark);
-        border-radius: 25px;
-        width: 80%;
-        height: 70%;
-        display: flex;
-        align-items: center;
-    }
-
-    /*button toggle add widget DISABLE(default) styles END*/
-
-    .activeStylesWidget {
-        background: var(--activeStylesWidget);
-    }
-
-    .toggleAddWidgetSwitch i {
-        width: 20px;
-        height: 25px;
-        display: flex;
-        transform: scale(.6);
-        transition: transform 1.4s ease-in-out;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .switch .toggleAddWidgetSwitch .activeMoveSlider {
-        transform: scale(.8) translate(100%);
-        align-items: center;
-        padding: 0 11px;
-    }
 }
+/*END STYLES MEDIA QUERY 377px -- 1441px*/
+
 
 /*CONFIG LIGHT AND DARK THEME BEGIN*/
 /*Dark Theme Config BEGIN*/
@@ -622,8 +379,7 @@
 
 .darkThem #headerMainTag .svgThemeChange {
     background: var(--svgThemeDark);
-    border: 2px solid rgb(20 20 20/.7);
-    outline: 3px solid rgb(255 90 90/1);
+    border: 2px solid rgb(255 90 90/1);
 }
 
 .darkThem #headerMainTag .svgThemeChange .sunIcon {
@@ -632,10 +388,6 @@
 
 .darkThem #headerMainTag .svgThemeChange .moonIcon {
     display: block;
-}
-
-.darkThem .boxFigureContainer {
-    background: var(--boxFigureContainerDark);
 }
 
 
@@ -688,33 +440,5 @@
     color: white;
     border: 2px solid #ffe;
 }
-
-.lightThem .boxFigureContainer {
-    background: #fcfdff;
-    color: #040918;
-    border: 1px solid rgb(50 50 50/.2);
-    box-shadow:
-        2px 3px 10px rgb(120 120 120/ .4),
-        -2px -2px 10px rgb(10 10 10/.1);
-}
-
-.lightThem .boxFigureContainer header p {
-    font-weight: 350;
-    color: var(--colorTextLightThem);
-}
-
-.lightThem .boxFigureContainer .removeButtWidget {
-    color: var(--removeWidgetButtLight);
-}
-
-.lightThem .switch .toggleAddWidgetSwitch {
-    background: #c7c7c7;
-    color: white;
-}
-
-.lightThem .switch .toggleAddWidgetSwitch.activeStylesWidget {
-    background: #c2211b;
-}
-
 /*light Theme Config END*/
 /*CONFIG LIGHT AND DARK THEME END*/
