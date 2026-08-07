@@ -1,5 +1,3 @@
-
-;
 export function cardsStatus() {
 
     /* ***** QUERYS ***** */
@@ -25,6 +23,7 @@ export function cardsStatus() {
     /* ***** LOGIC ***** */
     function loadStateCrs() {
         let svd = localStorage.getItem("state");
+        console.log(svd);
         if (svd) {
             st.cards = JSON.parse(svd).map(c => ({ id: c.id, active: c.active }));
         } else {
@@ -40,7 +39,9 @@ export function cardsStatus() {
     }
 
     function tggSwt(e) {
+        console.log("", e.currentTarget)
         let id = e.currentTarget.closest(".boxFigureContainer").getAttribute("id");
+        console.log("id:::", id)
         let card = st.cards.find(c => c.id === id)
         card.active = !card.active;
         let va = { id, active: card.active }
@@ -64,7 +65,7 @@ export function cardsStatus() {
     function swTgglRndr() {
         st.cards.forEach((card) => {
             let sw = document.getElementById(card.id).querySelector(".toggleAddWidgetSwitch");
-            let sldr = sw.querySelector("i");
+            let sldr = sw.querySelector("div");
 
             if (card.active) {
                 sw.classList.add("activeStylesWidget")
@@ -86,7 +87,6 @@ export function cardsStatus() {
                 console.log(`id: ${e.id}-active:${e.active}`);
             });
         }
-        console.log(`in rndrCrds()`);
     }
 
     /* ***** output value function ***** */

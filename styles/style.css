@@ -249,6 +249,84 @@ html {
     #containerC article header aside h1{
         font-size: 1.5rem;
     }
+
+    #containerC article header aside p{
+        padding: 0 15% 0 0;
+        text-wrap: break-word;
+        font-size:.9rem;
+    }
+
+
+    #containerC article footer{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #containerC article footer aside:first-child{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #containerC article footer aside:first-child button{
+        all: initial;
+        color: white;
+        border: 1px solid #fff4;
+        width: 55%;
+        height: 2rem;
+        border-radius: 20px;
+        text-align: center;
+        border: 1px solid #ccf6;
+    }
+
+    #containerC article footer aside:last-child {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        margin-right: 1rem;
+    }
+
+    #containerC article footer aside:last-child button{
+        border: 1px solid hsl(226, 11%, 37%);
+        background: hsl(226, 11%, 37%);
+        width: 25%;
+        height: 1rem;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        padding: 0 .1rem;
+    }
+
+    #containerC article footer aside:last-child button div{
+        background: white;
+        border-radius: 50%;
+        width: 1rem;
+        height: 1rem;
+        transition: background-color 3s;
+    }
+
+    /*BEGIN BEGIN STYLES SWITCH AND SLIDER BEGIN BEGIN */
+    #containerC article footer aside:last-child button {
+        transition: background .5s ease-in-out,
+        border 1.5s ease;
+    }
+
+    #containerC article footer aside:last-child button div {
+        transition: transform .5s ease-in-out;
+    }
+
+    #containerC article footer aside:last-child button.activeStylesWidget {
+        background: var(--activeStylesWidget);
+        border: 1px solid #c2211b;
+    }
+
+    #containerC article footer aside:last-child button div.activeMoveSlider {
+        transform: translateX(1.4rem);
+        transition: all .3s ease-in-out;
+    }
+    /*END END STYLES SWITCH AND SLIDER END END */
+
+
     /*end main cards container */
     /*END section #sectionMainContainer*/
 }

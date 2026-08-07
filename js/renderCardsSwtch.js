@@ -1,10 +1,8 @@
 import data from '../json/data.json' with { type: 'json'}
 
-console.log("data", data)
-
 export function genC() {
     data.forEach((e) => {
-        let nb = card(e.logo, e.name, e.description, e.isActive)
+        let nb = card(e.logo, e.name, e.description, e.isActive, e.id)
     })
 }
 
@@ -14,10 +12,11 @@ document.body.querySelector('#sectionMainContainer').append(tagmaincontainer)
 
 let c = (e) => document.createElement(`${e}`)
 
-function card(l, n, d, a) {
+function card(l, n, d, a,i) {
 
     let article = c('article')
     article.classList.add("boxFigureContainer")
+    article.setAttribute("id", i)
 
     /* HEAD*/
     let head = c('header')
@@ -41,13 +40,12 @@ function card(l, n, d, a) {
     let footasider = c('aside')
 
     let swch = c('button')
+    swch.classList.add("toggleAddWidgetSwitch")
     let mark = c('div')
-    mark.classList.add("testbutt")
     let rem = c('button')
 
-    swch.classList.add(a)
+    swch.classList.add('toggleAddWidgetSwitch')
     rem.textContent = "Remove"
-    console.log("class swtch", swch.classList)
 
     swch.append(mark)
     footasidel.append(rem)
