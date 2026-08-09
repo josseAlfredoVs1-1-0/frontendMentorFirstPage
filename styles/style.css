@@ -29,7 +29,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing:border-box;
+    box-sizing: border-box;
     font-family: 'Noto Sans', 'Courier New', Courier, monospace;
 }
 
@@ -84,7 +84,7 @@ html {
 
 }
 
-#containerC article{
+#containerC article {
     background-color: hsl(226, 25%, 17%);
 }
 
@@ -204,23 +204,24 @@ html {
         display: grid;
         padding: .5rem 1rem;
     }
+
     /*end header nav*/
 
     /*begin main cards container */
-    #sectionMainContainer #containerC{
+    #sectionMainContainer #containerC {
         align-items: center;
         justify-content: space-around;
         gap: 1rem;
     }
 
-    #containerC article{
+    #containerC article {
         height: 13rem;
         border-radius: 10px;
         display: grid;
         grid-template-rows: 3fr 1.5fr;
     }
 
-    #containerC article header{
+    #containerC article header {
         display: grid;
         grid-template-columns: 1fr 3fr;
     }
@@ -232,43 +233,43 @@ html {
         padding: 1rem 0 0 0;
     }
 
-    #containerC article header aside:first-child img{
+    #containerC article header aside:first-child img {
         width: 75%;
     }
 
-    #containerC article header aside:last-child{
+    #containerC article header aside:last-child {
         margin: .5rem 0 0 1rem;
     }
 
     #containerC article header aside h1,
-    #containerC article header aside p{
-        font-family: 'Noto Sans', sans-serif;        
+    #containerC article header aside p {
+        font-family: 'Noto Sans', sans-serif;
         color: #ccc;
     }
 
-    #containerC article header aside h1{
+    #containerC article header aside h1 {
         font-size: 1.5rem;
     }
 
-    #containerC article header aside p{
+    #containerC article header aside p {
         padding: 0 15% 0 0;
         text-wrap: break-word;
-        font-size:.9rem;
+        font-size: .9rem;
     }
 
 
-    #containerC article footer{
+    #containerC article footer {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
 
-    #containerC article footer aside:first-child{
+    #containerC article footer aside:first-child {
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    
-    #containerC article footer aside:first-child button{
+
+    #containerC article footer aside:first-child button {
         all: initial;
         color: white;
         border: 1px solid #fff4;
@@ -286,7 +287,7 @@ html {
         margin-right: 1rem;
     }
 
-    #containerC article footer aside:last-child button{
+    #containerC article footer aside:last-child button {
         border: 1px solid hsl(226, 11%, 37%);
         background: hsl(226, 11%, 37%);
         width: 25%;
@@ -297,7 +298,7 @@ html {
         padding: 0 .1rem;
     }
 
-    #containerC article footer aside:last-child button div{
+    #containerC article footer aside:last-child button div {
         background: white;
         border-radius: 50%;
         width: 1rem;
@@ -308,7 +309,7 @@ html {
     /*BEGIN BEGIN STYLES SWITCH AND SLIDER BEGIN BEGIN */
     #containerC article footer aside:last-child button {
         transition: background .5s ease-in-out,
-        border 1.5s ease;
+            border 1.5s ease;
     }
 
     #containerC article footer aside:last-child button div {
@@ -324,6 +325,7 @@ html {
         transform: translateX(1.4rem);
         transition: all .3s ease-in-out;
     }
+
     /*END END STYLES SWITCH AND SLIDER END END */
 
 
@@ -335,25 +337,27 @@ html {
 @media screen and (max-width: 1441px) and (min-width: 377px) {
 
     #bodyTagMain {
-        display: flex;
         width: 100dvw;
         height: auto;
+        display: flex;
     }
-
+    
     #wrapperContainerAllPage {
-        height: 100%;
-        width: 100dvw;
+        border: 3px solid red;
+        width: inherit;
+        height: inherit;
         display: flex;
         flex-direction: column;
         justify-content: start;
         align-items: center;
-        padding: 4rem 6rem 1rem 6rem;
+        padding: 4rem 1rem 1rem 1rem;
         min-width: 100%;
         min-height: 100dvh;
         gap: 2rem;
     }
-
+    
     .headerThemeChange {
+        border: 1px solid lime;
         width: 95%;
         height: 4rem;
         background: var(--headerBackColor);
@@ -369,11 +373,11 @@ html {
         width: 95%;
         justify-content: start;
     }
-
+    
     .containerLogoMainHeaderPage .logoMainPage {
         transform: scale(.7) translate(-35px);
     }
-
+    
     .svgThemeChange {
         width: 2rem;
         height: 2rem;
@@ -383,12 +387,13 @@ html {
         justify-content: center;
         background: var(--svgThemeDark);
     }
-
+    
     .svgThemeChange svg {
         transform: scale(1.1);
     }
-
+    
     #sectionMainContainer {
+        border: 1px solid red;
         width: 95%;
         height: 94%;
         display: flex;
@@ -397,8 +402,9 @@ html {
         justify-content: space-between;
         gap: 3rem 0rem;
     }
-
+    
     .containerNavInfo {
+        border: 1px solid orange;
         display: flex;
         align-items: end;
         justify-content: space-between;
@@ -407,19 +413,24 @@ html {
     }
 
     .containerNavInfo>* {
-        width: 15rem;
+        width: 1rem;
+        overflow: hidden;
+        border: 1px dotted yellow;
         height: 70%;
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
 
-    .containerNavInfo .tittleNavBar {
-        word-spacing: 5px;
+    #sectionMainContainer .containerNavInfo .tittleNavBar {
+        width: 30%;
+        font-size: auto;
+        word-spacing: 1%;
+        border: 1px solid cyan;
     }
 
     .containerNavInfo .clearFilter {
-        width: 10%;
+        width: 20%;
         height: 60%;
         background: transparent;
         color: white;
@@ -429,13 +440,13 @@ html {
     }
 
     #sectionMainContainer .containerNavInfo .containerBoxOfButtons {
+        width: 50%;
+        height: 100%;
         list-style: none;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: end;
-        width: 40%;
-        height: 100%;
     }
 
     .containerBoxOfButtons .buttNavSect {
@@ -446,6 +457,7 @@ html {
         margin: 0 .7rem;
     }
 }
+
 /*END STYLES MEDIA QUERY 377px -- 1441px*/
 
 
@@ -518,5 +530,6 @@ html {
     color: white;
     border: 2px solid #ffe;
 }
+
 /*light Theme Config END*/
 /*CONFIG LIGHT AND DARK THEME END*/

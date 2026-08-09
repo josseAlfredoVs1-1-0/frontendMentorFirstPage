@@ -12,5 +12,5 @@ if (typeof document !== "undefined" &&
         cardsStatus();
         //chargeState();
     });
-};
+}
  

@@ -25,20 +25,5 @@ function actionRemoveWidgetActive(e) {
             curr.classList.remove("activeRemoveWidgetButt");
         }, 500);
     }
-    applyInRealTime(boxClosst);
 }
 // remove widget active function END
-
-function applyInRealTime(el) {
-    let swtch = el.querySelector(".toggleAddWidgetSwitch");
-    let icon = el.querySelector(".toggleAddWidgetSwitch i");
-    el.style.border = "2px solid coral";
-
-    if (icon.classList.contains("activeMoveSlider")) {
-        icon.classList.remove("activeMoveSlider");
-    }
-
-    if (swtch.classList.contains("activeStylesWidget")) {
-        swtch.classList.remove("activeStylesWidget");
-    }
-}

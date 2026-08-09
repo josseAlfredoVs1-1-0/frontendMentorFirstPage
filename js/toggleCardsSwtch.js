@@ -23,42 +23,44 @@ export function cardsStatus() {
     /* ***** LOGIC ***** */
     function loadStateCrs() {
         let svd = localStorage.getItem("state");
-        console.log(svd);
-        if (svd) {
-            st.cards = JSON.parse(svd).map(c => ({ id: c.id, active: c.active }));
-        } else {
-            let strnify = JSON.stringify(allIdCard.map(id => ({ id, active: false })));
-            localStorage.setItem("state", strnify);
+        console.log("svd:", svd);
 
-            st.cards = JSON.parse(strnify).map(e => {
-                localStorage.setItem(e.id, e.active);
-                swTgglRndr();
-            });
+        if (!svd) {
+            let strnify = JSON.stringify(allCards.map(card => ({ id: card.getAttribute("id"), active: false })));
+            localStorage.setItem("state", strnify);
         }
+
+        setState();
         rdrCrds();
+        swTgglRndr();
+    }
+
+    function setState() {
+        console.log("st: before", st)
+        st.cards = JSON.parse(localStorage.getItem("state")).map(c => ({ id: c.id, active: c.active }))
+        console.log("st: after", st)
     }
 
     function tggSwt(e) {
-        console.log("", e.currentTarget)
+        console.log(st.cards)
+        console.log("currentButton:", e.currentTarget)
         let id = e.currentTarget.closest(".boxFigureContainer").getAttribute("id");
         console.log("id:::", id)
         let card = st.cards.find(c => c.id === id)
         card.active = !card.active;
-        let va = { id, active: card.active }
+
+        console.log("st thiscard:", card)
 
         rdrCrds(id);
-        storeCardsSt(va);
+        storeCardsSt();
         swTgglRndr();
     }
 
     function storeCardsSt(va) {
-        if (va) {
-            let thsCr = st.cards.find(c => c.id === va.id);
-            console.log("va:", thsCr, "typeof:", typeof thsCr);
-            localStorage.setItem(thsCr.id, thsCr.active)
-        }
-        rdrCrds();
+        localStorage.setItem("state", JSON.stringify(st.cards))
+
         console.log(`in chargeState()`);
+        rdrCrds();
     }
 
     /* ***** RENDER ***** */
