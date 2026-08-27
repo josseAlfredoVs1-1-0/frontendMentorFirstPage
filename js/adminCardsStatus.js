@@ -1,7 +1,8 @@
-import { darkAll } from './applyDarkInitial.js';
-import './filterByCategory.js';
-import { cardsStatus } from './toggleCardsSwtch.js';
 import {genC} from './renderCardsSwtch.js';
+import { darkAll } from './applyDarkInitial.js';
+import { cardsStatus } from './toggleCardsSwtch.js';
+import { initActionRem } from './ActionRemove.js';
+import './filterByCategory.js';
 
 if (typeof document !== "undefined" &&
     typeof window !== "undefined") {
@@ -10,7 +11,7 @@ if (typeof document !== "undefined" &&
         genC();
         darkAll();
         cardsStatus();
-        //chargeState();
+        initActionRem();
     });
 }
  

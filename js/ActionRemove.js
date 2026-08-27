@@ -1,17 +1,25 @@
+export function initActionRem() {
+    console.log("initialized")
+    //Remove button widget card
+    const buttonsRemoveWidgetCard = document.querySelectorAll(".removeButtWidget");
+    console.log("buttRem:", buttonsRemoveWidgetCard)
 
-//Remove button widget card
-const buttonsRemoveWidgetCard = document.querySelectorAll(".removeButtWidget");
+    buttonsRemoveWidgetCard.forEach((butt) => {
+        butt.addEventListener("click", actionRemoveWidgetActive, false);
+    });
+}
 
-buttonsRemoveWidgetCard.forEach((butt) => {
-    butt.addEventListener("click", actionRemoveWidgetActive, false);
-});
 
 // remove widget active function BEGIN || button (remove) widget card
 function actionRemoveWidgetActive(e) {
     let curr = e.currentTarget;
-    console.log(`elemet targeted: ${curr.closest(".boxFigureContainer").querySelector("h4").innerText} - id: ${curr.closest(".boxFigureContainer").getAttribute("id")}`);
-    const active = curr.classList.contains("activeRemoveWidgetButt");
     const boxClosst = curr.closest(".boxFigureContainer");
+    let id = boxClosst.getAttribute("id");
+    let tt = boxClosst.querySelector("h1").innerText;
+    const active = curr.classList.contains("activeRemoveWidgetButt");
+    console.log(`elemet targeted: ${tt} - id: ${id}`);
+
+
     const inLStor = localStorage.getItem(curr.closest(".boxFigureContainer").getAttribute("id")) == "active" ?
         true
         : false;

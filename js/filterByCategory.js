@@ -1,41 +1,55 @@
-//variables for toggle switch active | All - Active | Inactive
-const buttonsNavSec = document.querySelectorAll(".buttNavSect");
-const allCards = document.querySelectorAll(".boxFigureContainer");
+import { st } from './state.js'
 
-const resetB = document.querySelector(".clearFilter");
-resetB.addEventListener("click", clearFilter, false);
+export function initEnv() {
 
-//************** add event listeners BEGIN **************
-buttonsNavSec.forEach((butt) => {
-    butt.addEventListener("click", toggleActiveNavButton, false);
-});
+    //variables for toggle switch active | All - Active | Inactive
+    const buttonsNavSec = document.querySelectorAll(".buttNavSect");
+    const allCards = document.querySelector("#box1");
+    const resetB = document.querySelector(".clearFilter");
+    console.log("cards__", allCards)
+
+
+    resetB.addEventListener("click", clearFilter, false);
+    resetB.addEventListener('animationend', function (e) { e.currentTarget.classList.remove("clearAnim") }, false)
+
+    //************** add event listeners BEGIN **************
+    buttonsNavSec.forEach((butt) => {
+        butt.addEventListener("click", toggleActiveNavButton, false);
+    });
+}
 
 //Toogle button active nav section
 function toggleActiveNavButton(e) {
-    let currButtSwitch = e.target || e.currentTarget;
-    let active = currButtSwitch.classList.contains("activeButtNavSect");
+    const currButtSwitch = e.currentTarget;
     let currName = currButtSwitch.innerText;
-    console.log(`button clicked: ${currName} - active? : ${active}`);
+    let c = st.filter.find(f => f.name == currName);
 
+    st.filter.forEach((f) => {
+        f.active = false
+        if (f.name !== c.name) {
+        }
+        c.active = !c.active;
+    })
 
-    !active ?
-        (() => {
-            buttonsNavSec.forEach((butt) => {
-                butt.classList.remove("activeButtNavSect")
-            });
-            currButtSwitch.classList.add("activeButtNavSect")
-            console.log(`button enabled: ${currName} - classList: ${currButtSwitch.classList}`);
-            showCountedCards(currName);
-        })() :
-        (() => {
-            currButtSwitch.classList.remove("activeButtNavSect");
-            console.log("button disabled, no action");
-            showAll(allCards);
-        })();
-    // END operator ternary  ⬆️⬆️
+    console.log("filter name:", c.name, "active: ", c.active)
+    st.filter.forEach((e) => console.log("in filter() --- st.filter", e))
+
+    rdrButtNav(currName, currButtSwitch);
+    //if (c.active) { filterCards(currName) }
 };
 
-function showCountedCards(filterKey, el) {
+function rdrButtNav(b, t) {
+    buttonsNavSec.forEach((butt) => {
+        butt.classList.remove("activeButtNavSect")
+    });
+
+    if (st.filter.find((f) => f.name == b).active) {
+        t.classList.add("activeButtNavSect")
+        filterCards(b);
+    }
+}
+
+function filterCards(filterKey, el) {
     console.log(`filter key: ${filterKey}`);
 
     switch (filterKey) {
@@ -51,16 +65,14 @@ function showCountedCards(filterKey, el) {
     }
 }
 
-let filtOpt = "";
 function showAll(cards) {
-    console.log("show all cards");
-    cards.forEach((card) => {
-        card.style.display = "grid";
+    console.log("show all cards --");
+    st.cards.filter((c) => {
+        console.log("card:", c, "cards:::", cards)
     });
 }
 
 function showActive(cards, status) {
-    filtOpt = "FuACTIVE";
     console.log(`status: ${status}`);
 
     let ks = Object.keys(localStorage).filter((key) => localStorage.getItem(key) === "active");
@@ -100,7 +112,13 @@ function showInactive(cards, status) {
     });
 };
 
-function clearFilter() {
+function clearFilter(e) {
+    let cl = e.currentTarget;
+    cl.classList.remove("clearAnim");
+    void cl.offsetWidth;
+
+    cl.classList.add("clearAnim")
+    console.log("curr:", cl)
     localStorage.clear();
 }
 

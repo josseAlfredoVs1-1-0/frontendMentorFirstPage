@@ -40,10 +40,10 @@ function card(l, n, d, a,i) {
     let footasider = c('aside')
 
     let swch = c('button')
-    swch.classList.add("toggleAddWidgetSwitch")
     let mark = c('div')
     let rem = c('button')
 
+    rem.classList.add("removeButtWidget")
     swch.classList.add('toggleAddWidgetSwitch')
     rem.textContent = "Remove"
 

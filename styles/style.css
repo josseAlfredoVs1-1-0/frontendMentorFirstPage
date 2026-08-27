@@ -26,17 +26,18 @@
 
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Noto Sans', 'Courier New', Courier, monospace;
-}
-
 @font-face {
     font-family: 'Noto Sans';
     src: url(../assets/fonts/NotoSans-VariableFont_wdth\,wght.ttf);
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', Courier, monospace;
+}
+
 
 html {
     width: 100dvw;
@@ -224,13 +225,14 @@ html {
     #containerC article header {
         display: grid;
         grid-template-columns: 1fr 3fr;
+        gap: .4rem;
     }
 
     #containerC article header aside:first-child {
         display: flex;
         justify-content: end;
         align-items: start;
-        padding: 1rem 0 0 0;
+        margin: .8rem 0rem;
     }
 
     #containerC article header aside:first-child img {
@@ -238,7 +240,7 @@ html {
     }
 
     #containerC article header aside:last-child {
-        margin: .5rem 0 0 1rem;
+        margin: .5rem .5rem;
     }
 
     #containerC article header aside h1,
@@ -252,7 +254,7 @@ html {
     }
 
     #containerC article header aside p {
-        padding: 0 15% 0 0;
+        padding: 0 2rem 0 0;
         text-wrap: break-word;
         font-size: .9rem;
     }
@@ -338,28 +340,27 @@ html {
 
     #bodyTagMain {
         width: 100dvw;
+        min-width: 790px;
         height: auto;
         display: flex;
     }
-    
+
     #wrapperContainerAllPage {
-        border: 3px solid red;
         width: inherit;
         height: inherit;
         display: flex;
         flex-direction: column;
         justify-content: start;
         align-items: center;
-        padding: 4rem 1rem 1rem 1rem;
+        padding: 4rem 6rem;
         min-width: 100%;
         min-height: 100dvh;
         gap: 2rem;
     }
-    
+
     .headerThemeChange {
-        border: 1px solid lime;
         width: 95%;
-        height: 4rem;
+        height: 5rem;
         background: var(--headerBackColor);
         display: flex;
         align-items: center;
@@ -370,53 +371,50 @@ html {
 
     .containerLogoMainHeaderPage {
         display: flex;
-        width: 95%;
+        width: 90%;
         justify-content: start;
     }
-    
+
     .containerLogoMainHeaderPage .logoMainPage {
-        transform: scale(.7) translate(-35px);
+        transform: scale(.8) translate(-35px);
     }
-    
+
     .svgThemeChange {
-        width: 2rem;
-        height: 2rem;
+        width: 3rem;
+        height: 3rem;
         display: flex;
         align-items: center;
         border-radius: 8px;
         justify-content: center;
         background: var(--svgThemeDark);
     }
-    
+
     .svgThemeChange svg {
-        transform: scale(1.1);
+        transform: scale(2);
     }
-    
+
     #sectionMainContainer {
-        border: 1px solid red;
         width: 95%;
         height: 94%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        gap: 3rem 0rem;
     }
-    
+
     .containerNavInfo {
-        border: 1px solid orange;
         display: flex;
-        align-items: end;
+        align-items: center;
         justify-content: space-between;
         width: 100%;
-        height: 3rem;
+        height: 10rem;
+        min-width: 700px;
     }
 
     .containerNavInfo>* {
         width: 1rem;
         overflow: hidden;
-        border: 1px dotted yellow;
-        height: 70%;
+        height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -424,38 +422,185 @@ html {
 
     #sectionMainContainer .containerNavInfo .tittleNavBar {
         width: 30%;
-        font-size: auto;
+        min-width: 195px;
+        height: 100%;
+        font-size: 2rem;
         word-spacing: 1%;
-        border: 1px solid cyan;
     }
 
     .containerNavInfo .clearFilter {
-        width: 20%;
-        height: 60%;
-        background: transparent;
+        width: 15%;
+        min-width: 100px;
+        height: 40%;
+        font-size: 1.2rem;
+        font-weight: 200;
+        background: #aaa2;
         color: white;
-        border-radius: 20px;
-        border: none;
-        box-shadow: 3px 3px 1px grey;
+        border-radius: 10px;
+        border: 2px solid transparent;
+        box-shadow:
+            2px 3px 12px #aaa6,
+            -3px -3px 12px #aaa6;
+    }
+
+    .containerNavInfo .clearFilter.clearAnim {
+        animation: clr 3s alternate;
+    }
+
+    @keyframes clr {
+        0% {
+            border: 7px solid #ebb;
+            box-shadow: 0px 0px 45px #ebb;
+            background: #ebb;
+        }
+
+        20%{
+            border: 3px solid #e99;
+        }
+
+        100% {
+            border: 2px solid transparent;
+        }
     }
 
     #sectionMainContainer .containerNavInfo .containerBoxOfButtons {
-        width: 50%;
+        width: 40%;
         height: 100%;
         list-style: none;
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: end;
+        justify-content: space-evenly;
+        min-width: 300px;
+        padding: 0 0 0 4rem;
     }
 
-    .containerBoxOfButtons .buttNavSect {
-        font-size: 1rem;
-        position: relative;
-        height: 2.5rem;
-        width: auto;
-        margin: 0 .7rem;
+    .containerBoxOfButtons li {
+        display: flex;
+        justify-content: center;
+        min-width: 3rem;
     }
+
+    #sectionMainContainer .containerNavInfo .containerBoxOfButtons .buttNavSect {
+        font-size: x-large;
+        position: relative;
+        height: 3rem;
+        width: 100%;
+        font-family: 'Noto Sans', 'Courier New', Courier, monospace;
+    }
+
+    /* STYLES CONCAINERC BEGIN STYLES CONTAINERC BEGIN STYLES CONTAINERC */
+    #sectionMainContainer #containerC {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        grid-template-rows: repeat(auto-fit, minmax(209px, 1fr));
+        gap: .8rem;
+    }
+
+    #sectionMainContainer #containerC .boxFigureContainer {
+        height: 13rem;
+        border-radius: 15px;
+        display: grid;
+        grid-template-rows: 70% 30%;
+        border: 1px solid #aaa2;
+    }
+
+    .boxFigureContainer header {
+        display: grid;
+        grid-template-columns: 22% auto;
+    }
+
+    .boxFigureContainer header aside:first-child {
+        display: flex;
+        justify-content: end;
+        padding: 1.4rem 0;
+    }
+
+    .boxFigureContainer aside:first-child img {
+        width: 80%;
+        height: 40%;
+    }
+
+    .boxFigureContainer aside:last-child {
+        padding: .8rem;
+        color: white;
+    }
+
+    .boxFigureContainer header aside:last-child p {
+        padding-right: .8rem;
+    }
+
+    /*FOOTER FOOTER FOOTER*/
+    .boxFigureContainer footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2rem;
+    }
+
+    .boxFigureContainer footer aside:first-child {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 5.5rem;
+        height: 2.5rem;
+    }
+
+    .boxFigureContainer footer aside:first-child button {
+        all: unset;
+        text-align: center;
+        font-weight: 500;
+        color: hsl(0, 0%, 93%);
+        border: 1px solid #fff5;
+        border-radius: 15px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .boxFigureContainer footer aside:last-child {
+        all: unset;
+        width: 4rem;
+        height: 1.6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .boxFigureContainer footer aside:last-child button {
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+        border: 1px solid hsl(226, 11%, 33%);
+        background: transparent;
+        transition:
+            background-color .8s ease,
+            border .5s ease-in;
+        padding: 0 .2rem;
+    }
+
+    .boxFigureContainer footer aside:last-child button div {
+        border: 1px solid white;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background: hsl(0, 0%, 93%);
+        transition: transform 1.3s ease;
+    }
+
+    #containerC article footer aside:last-child button.activeStylesWidget {
+        background: var(--activeStylesWidget);
+        border: 1px solid #c2211b;
+        transition: background-color 1s ease-in-out,
+            border .3s ease-in, transform 10s;
+    }
+
+    #containerC article footer aside:last-child button div.activeMoveSlider {
+        transform: translateX(2.5rem);
+        transition: all .3s ease-in-out, transform .6s ease;
+    }
+
+    /* STYLES CONCAINERC STYLES CONTAINERC STYLES CONTAINERC */
+
 }
 
 /*END STYLES MEDIA QUERY 377px -- 1441px*/

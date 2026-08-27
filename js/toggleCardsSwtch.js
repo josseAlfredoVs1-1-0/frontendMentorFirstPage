@@ -1,16 +1,10 @@
+import { st } from './state.js'
+
 export function cardsStatus() {
 
     /* ***** QUERYS ***** */
     let allCards = [...document.querySelectorAll(".boxFigureContainer")];
     let allIdCard = allCards.map(c => c.getAttribute("id"))
-
-
-    /* ***** STATUS ***** */
-    let st = {
-        cards: [],
-        filter: "All",
-        theme: "Dark",
-    }
 
     /* ***** EVENTS ***** */
     window.addEventListener("load", loadStateCrs, false);
@@ -24,7 +18,6 @@ export function cardsStatus() {
     function loadStateCrs() {
         let svd = localStorage.getItem("state");
         console.log("svd:", svd);
-
         if (!svd) {
             let strnify = JSON.stringify(allCards.map(card => ({ id: card.getAttribute("id"), active: false })));
             localStorage.setItem("state", strnify);
@@ -36,9 +29,9 @@ export function cardsStatus() {
     }
 
     function setState() {
-        console.log("st: before", st)
-        st.cards = JSON.parse(localStorage.getItem("state")).map(c => ({ id: c.id, active: c.active }))
-        console.log("st: after", st)
+        console.log("st: before", st);
+        st.cards = JSON.parse(localStorage.getItem("state")).map(c => ({ id: c.id, active: c.active }));
+        console.log("st: after", st);
     }
 
     function tggSwt(e) {
@@ -48,7 +41,6 @@ export function cardsStatus() {
         console.log("id:::", id)
         let card = st.cards.find(c => c.id === id)
         card.active = !card.active;
-
         console.log("st thiscard:", card)
 
         rdrCrds(id);
@@ -70,7 +62,7 @@ export function cardsStatus() {
             let sldr = sw.querySelector("div");
 
             if (card.active) {
-                sw.classList.add("activeStylesWidget")
+                sw.classList.add("activeStylesWidget", "activeMoveSlider")
                 sldr.classList.add("activeMoveSlider")
             } else {
                 sw.classList.remove("activeStylesWidget");
@@ -92,5 +84,4 @@ export function cardsStatus() {
     }
 
     /* ***** output value function ***** */
-    return { st }
 }
